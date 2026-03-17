@@ -95,21 +95,21 @@ const allServices = serviceData.flatMap(cat => cat.services);
 
 export const DetailedServices = () => {
   return (
-    <section className="py-24 bg-white" id="services">
+    <section className="py-16 sm:py-24 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 sm:mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-black text-brand-black mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-display font-black text-brand-black mb-6"
           >
             Our Premium <span className="text-brand-red">Visa & Immigration Services</span>
           </motion.h2>
-          <div className="w-24 h-1.5 bg-brand-red mx-auto rounded-full" />
+          <div className="w-16 sm:w-24 h-1 sm:h-1.5 bg-brand-red mx-auto rounded-full" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {allServices.map((service, idx) => (
             <motion.div
               key={service.title}
@@ -117,7 +117,7 @@ export const DetailedServices = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="group relative h-[480px] rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+              className="group relative h-[400px] sm:h-[480px] rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
             >
               {/* Background Image */}
               <div className="absolute inset-0">
@@ -132,11 +132,11 @@ export const DetailedServices = () => {
               </div>
 
               {/* Content */}
-              <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                <h4 className="text-2xl font-bold text-white mb-4 leading-tight group-hover:text-brand-red transition-colors">
+              <div className="absolute inset-0 p-8 sm:p-10 flex flex-col justify-end">
+                <h4 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 leading-tight group-hover:text-brand-red transition-colors">
                   {service.title}
                 </h4>
-                <p className="text-white/70 text-sm leading-relaxed mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+                <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
                   {service.description}
                 </p>
                 
@@ -144,10 +144,10 @@ export const DetailedServices = () => {
                   href="/services" 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-brand-red text-white py-4 px-8 rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-red-500/20 hover:bg-white hover:text-brand-red transition-all group/btn"
+                  className="bg-brand-red text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-red-500/20 hover:bg-white hover:text-brand-red transition-all group/btn"
                 >
                   Learn More
-                  <ArrowUpRight size={18} className="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                  <ArrowUpRight size={16} className="sm:size-18 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
                 </motion.a>
               </div>
             </motion.div>

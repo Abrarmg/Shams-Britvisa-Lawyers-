@@ -168,14 +168,14 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-brand-red/10 text-brand-red px-4 py-2 rounded-full font-black uppercase tracking-widest text-xs mb-4"
+            className="inline-flex items-center gap-2 bg-brand-red/10 text-brand-red px-4 py-2 rounded-full font-black uppercase tracking-widest text-[10px] sm:text-xs mb-4"
           >
             <HelpCircle size={14} />
             Common Questions
@@ -184,16 +184,16 @@ export const FAQ = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-display font-black text-brand-black mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-brand-black mb-6"
           >
             Frequently Asked <span className="text-brand-red">Questions</span>
           </motion.h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto">
+          <p className="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto">
             Everything you need to know about our firm, our services, and how we can help you with your UK immigration journey.
           </p>
         </div>
 
-        <div className="bg-white rounded-[32px] border border-zinc-100 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-zinc-100 shadow-sm overflow-hidden">
           {faqs.map((faq, idx) => (
             <FAQItem
               key={idx}
@@ -213,10 +213,10 @@ export const FAQ = () => {
         >
           <p className="text-zinc-500 mb-6">Still have questions? We're here to help.</p>
           <a
-            href="tel:+447776668557"
+            href="tel:03301338857"
             className="inline-flex items-center gap-2 text-brand-red font-black hover:underline"
           >
-            Call us directly at +44 7776 668557
+            Call us directly at 0330 133 8857
           </a>
         </motion.div>
       </div>

@@ -66,8 +66,18 @@ export default function DocumentChecking() {
                   <div>
                     <h3 className="text-2xl font-condensed font-black text-brand-black mb-6 uppercase tracking-tight">Why Use This Service?</h3>
                     <ul className="space-y-4">
+                      <li className="flex gap-4">
+                        <div className="mt-1">
+                          <a href="https://www.iaa.govt.nz/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform block">
+                            <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-12 w-auto" referrerPolicy="no-referrer" />
+                          </a>
+                        </div>
+                        <div>
+                          <h5 className="font-bold text-brand-black text-sm">IAA Regulated</h5>
+                          <p className="text-xs text-zinc-500 leading-relaxed">Expert audit by a regulated UK immigration adviser.</p>
+                        </div>
+                      </li>
                       {[
-                        { title: "Expert Audit", desc: "Thorough review by a regulated UK immigration adviser." },
                         { title: "Fast Turnaround", desc: "Detailed feedback report within 48-72 hours." },
                         { title: "Compliance Check", desc: "Verify evidence meets the latest Home Office rules." }
                       ].map((item, i) => (

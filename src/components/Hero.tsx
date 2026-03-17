@@ -5,25 +5,32 @@ import { Link } from 'react-router-dom';
 
 const slides = [
   {
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1920',
-    heading: 'Shams Britvisa Lawyers',
-    subheadline: 'Staying Ahead of UK Immigration Changes',
-    description: 'At Shams Britvisa Lawyers Ltd, we stay up to date so you don’t have to, ensuring your visa application is always compliant and accurate.',
-    link: '/booking'
+    image: 'https://i.ibb.co/jZMB1ZwJ/image.png',
+    heading: 'ILR 3 Years',
+    subheadline: 'Innovator Founder Visa',
+    description: 'Fast-track your UK settlement. Obtain Indefinite Leave to Remain in just 3 years with our expert Innovator Founder guidance.',
+    link: '/innovator-founder'
   },
   {
-    image: 'https://i.ibb.co/pHczb72/image.png',
-    heading: 'Innovator Founder',
-    subheadline: 'Secure Your UK Future with ILR in Just 3 Years',
-    description: 'Strategic advice for entrepreneurs and innovators looking to establish their business in the UK and fast-track their settlement route.',
-    link: '/innovator-founder'
+    image: 'https://i.ibb.co/N6qsdJbK/image.png',
+    heading: 'Global Talent Visa',
+    subheadline: 'For Leaders & Future Leaders',
+    description: 'Exceptional talent in science, engineering, humanities, medicine, digital technology, or arts. Settle in the UK in 3 years.',
+    link: '/global-talent-visa'
   },
   {
     image: 'https://i.ibb.co/rfGcX9wr/image.png',
     heading: 'Self-Sponsorship',
-    subheadline: 'Take Control: Set Up Your Company & Sponsor Yourself',
-    description: 'Expert legal guidance on the self-sponsorship route, allowing you to run your own UK business while securing your professional visa.',
+    subheadline: 'Be Your Own Sponsor',
+    description: 'Take control of your UK immigration. Set up your own company and sponsor your own Skilled Worker visa.',
     link: '/self-sponsorship'
+  },
+  {
+    image: 'https://i.ibb.co/RGhHzx0S/Untitled-design-2.png',
+    heading: 'Our Main Office',
+    subheadline: 'Based in Manchester',
+    description: 'Visit us at our Manchester office for professional, face-to-face immigration advice tailored to your needs.',
+    link: '/#location'
   }
 ];
 
@@ -130,6 +137,74 @@ export const Hero = () => {
               />
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* IAA Verification Bar */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 py-6 md:py-8">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 text-center">
+          <div className="max-w-2xl">
+            <motion.p 
+              className="text-white font-bold text-xs md:text-lg inline"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.03,
+                  },
+                },
+              }}
+            >
+              {"This Immigration Law Firm is IAA Registered. Reg No. F202200117".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </motion.p>
+            <motion.span 
+              className="text-brand-red ml-2 inline-block font-bold text-xs md:text-lg"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [1, 0.6, 1],
+                scale: [1, 1.02, 1]
+              }}
+              transition={{ 
+                opacity: { delay: 2, duration: 2, repeat: Infinity, ease: "easeInOut" },
+                scale: { delay: 2, duration: 2, repeat: Infinity, ease: "easeInOut" }
+              }}
+            >
+              Click on the Badge to Verify!
+            </motion.span>
+          </div>
+          <motion.a 
+            href="https://portal.immigrationadviceauthority.gov.uk/s/adviser-register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0"
+            whileHover={{ scale: 1.05 }}
+            animate={{ 
+              y: [0, -5, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <img 
+              src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" 
+              alt="IAA-Logo" 
+              className="h-24 md:h-36 w-auto"
+              referrerPolicy="no-referrer"
+            />
+          </motion.a>
         </div>
       </div>
     </section>

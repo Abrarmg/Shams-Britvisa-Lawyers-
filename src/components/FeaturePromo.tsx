@@ -15,7 +15,7 @@ interface FeatureCardProps {
 const FeatureCard = ({ image, heading, subheadline, description, link }: FeatureCardProps) => {
   const CardContent = (
     <>
-      <div className="h-64 overflow-hidden relative">
+      <div className="h-48 sm:h-64 overflow-hidden relative">
         <img 
           src={image} 
           alt={heading} 
@@ -24,19 +24,19 @@ const FeatureCard = ({ image, heading, subheadline, description, link }: Feature
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
-      <div className="p-8 flex flex-col flex-grow">
-        <h3 className="text-brand-red font-black text-2xl mb-2 uppercase tracking-tight">
+      <div className="p-6 sm:p-8 flex flex-col flex-grow">
+        <h3 className="text-brand-red font-black text-xl sm:text-2xl mb-2 uppercase tracking-tight">
           {heading}
         </h3>
-        <h4 className="text-brand-black font-bold text-lg mb-4 leading-snug">
+        <h4 className="text-brand-black font-bold text-base sm:text-lg mb-4 leading-snug">
           {subheadline}
         </h4>
-        <p className="text-zinc-600 mb-8 flex-grow leading-relaxed">
+        <p className="text-zinc-600 text-sm sm:text-base mb-6 sm:mb-8 flex-grow leading-relaxed">
           {description}
         </p>
-        <div className="flex items-center gap-2 text-brand-red font-black uppercase tracking-widest text-sm hover:gap-4 transition-all group">
+        <div className="flex items-center gap-2 text-brand-red font-black uppercase tracking-widest text-[10px] sm:text-xs hover:gap-3 transition-all group">
           Read More 
-          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </>

@@ -59,8 +59,13 @@ export default function Booking() {
               </p>
 
               <div className="flex flex-wrap gap-8 mb-16">
+                <div className="flex items-center gap-3 text-white font-medium">
+                  <a href="https://www.iaa.govt.nz/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+                    <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-14 w-auto" referrerPolicy="no-referrer" />
+                  </a>
+                  <span className="text-sm md:text-base">Regulated by IAA</span>
+                </div>
                 {[
-                  "Regulated by IAA",
                   "Same-day appointments available",
                   "Online & in-office options"
                 ].map((badge, i) => (
@@ -134,12 +139,15 @@ export default function Booking() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-brand-red/10 transition-colors" />
                 <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 ${
-                    consultationType === 'online'
-                      ? 'bg-brand-red text-white scale-110'
-                      : 'bg-brand-red/5 text-brand-red group-hover:scale-110 group-hover:bg-brand-red group-hover:text-white'
-                  }`}>
-                    <Video size={32} />
+                  <div className="flex items-center justify-between mb-8">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                      consultationType === 'online'
+                        ? 'bg-brand-red text-white scale-110'
+                        : 'bg-brand-red/5 text-brand-red group-hover:scale-110 group-hover:bg-brand-red group-hover:text-white'
+                    }`}>
+                      <Video size={32} />
+                    </div>
+                    <span className="text-brand-red font-bold text-sm uppercase tracking-widest">upto 60 mins</span>
                   </div>
                   <h3 className="text-3xl font-condensed font-black text-brand-black mb-4 uppercase tracking-tight">Online Consultation</h3>
                   <p className="text-zinc-600 font-medium leading-relaxed mb-8">
@@ -177,14 +185,27 @@ export default function Booking() {
                     : 'bg-brand-black border-transparent hover:shadow-brand-red/5'
                 }`}
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-white/10 transition-colors" />
+                {/* Blurred Office Background */}
+                <div 
+                  className="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                  style={{ 
+                    backgroundImage: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000")',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(8px)'
+                  }}
+                />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-white/10 transition-colors z-0" />
                 <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 ${
-                    consultationType === 'office'
-                      ? 'bg-brand-red text-white scale-110'
-                      : 'bg-white/5 text-white group-hover:scale-110 group-hover:bg-brand-red'
-                  }`}>
-                    <MapPin size={32} />
+                  <div className="flex items-center justify-between mb-8">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                      consultationType === 'office'
+                        ? 'bg-brand-red text-white scale-110'
+                        : 'bg-white/5 text-white group-hover:scale-110 group-hover:bg-brand-red'
+                    }`}>
+                      <MapPin size={32} />
+                    </div>
+                    <span className="text-brand-red font-bold text-sm uppercase tracking-widest">upto 60 mins</span>
                   </div>
                   <h3 className="text-3xl font-condensed font-black text-white mb-4 uppercase tracking-tight">In-Person Meeting</h3>
                   <p className="text-white/60 font-medium leading-relaxed mb-8">
@@ -222,8 +243,18 @@ export default function Booking() {
                 <div>
                   <h3 className="text-2xl font-condensed font-black text-brand-black mb-6 uppercase tracking-tight">Why Consult With Us?</h3>
                   <ul className="space-y-4">
+                    <li className="flex gap-4">
+                      <div className="mt-1">
+                        <a href="https://www.iaa.govt.nz/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform block">
+                          <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-12 w-auto" referrerPolicy="no-referrer" />
+                        </a>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-brand-black text-sm">IAA Regulated</h5>
+                        <p className="text-xs text-zinc-500 leading-relaxed">Fully qualified and regulated legal advice.</p>
+                      </div>
+                    </li>
                     {[
-                      { title: "IAA Regulated", desc: "Fully qualified and regulated legal advice." },
                       { title: "Strategic Planning", desc: "We don't just fill forms; we build winning strategies." },
                       { title: "High Success Rate", desc: "Thousands of successful applications processed." }
                     ].map((item, i) => (
@@ -243,21 +274,22 @@ export default function Booking() {
                 <div className="p-8 bg-zinc-50 rounded-3xl border border-zinc-100">
                   <h4 className="font-bold text-brand-black mb-4">Consultation Fees</h4>
                   <p className="text-sm text-zinc-500 leading-relaxed mb-6">
-                    Our fees are transparent and fixed. The consultation fee is deductible from our full representation service if you choose to instruct us.
+                    Our consultation fee is fully refundable if you choose Shams Britvisa Lawyers for your visa application process.
                   </p>
-                  <div className="flex items-center gap-3 text-brand-red font-bold text-sm">
+                  <div className="flex items-center gap-3 text-brand-red font-bold text-sm mb-6">
                     <ShieldCheck size={18} />
-                    <span>Secure Payment via Stripe</span>
+                    <span>Secure Payment via Stripe, Google & Apple Pay</span>
                   </div>
+
+                  {/* Receipt info removed */}
                 </div>
 
-                <div>
-                  <h4 className="font-bold text-brand-black mb-2 text-sm uppercase tracking-widest">Need Fast Help?</h4>
-                  <p className="text-sm text-zinc-500 mb-4">Call our emergency hotline for immediate assistance with refusals.</p>
-                  <a href="tel:+447776668557" className="text-xl font-black text-brand-red hover:text-brand-black transition-colors">
-                    +44 7776 668557
-                  </a>
+                <div className="p-8 bg-brand-red/5 rounded-3xl border border-brand-red/10">
+                  <h4 className="font-condensed font-black text-brand-black text-xl mb-2 uppercase tracking-tight">NEED FAST HELP?</h4>
+                  <p className="text-sm text-zinc-600 mb-4">Call our emergency hotline for immediate assistance with refusals.</p>
+                  <a href="tel:03301338857" className="text-2xl font-black text-brand-red hover:text-brand-black transition-colors">0330 133 8857</a>
                 </div>
+
               </div>
 
               {/* RIGHT SIDE: BOOKING WIDGET (8 cols) */}
@@ -302,6 +334,8 @@ export default function Booking() {
                       src={consultationType === 'online' ? onlineSrc : officeSrc}
                       id={consultationType === 'online' ? onlineId : officeId}
                     />
+
+                    {/* Post-Booking Information removed */}
                   </motion.div>
                 </div>
               </div>

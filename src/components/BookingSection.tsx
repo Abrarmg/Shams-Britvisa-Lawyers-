@@ -25,7 +25,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   const officeId = "5Z8SM75j6H7WIVpuWepC_1773167176398";
 
   return (
-    <section id={id} className={`py-32 relative overflow-hidden ${className}`}>
+    <section id={id} className={`py-16 sm:py-32 relative overflow-hidden ${className}`}>
       {/* Background Accents */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none opacity-20">
         <div className="absolute top-0 left-0 w-96 h-96 bg-brand-red/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
@@ -39,20 +39,20 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-brand-black rounded-[3rem] p-12 md:p-16 text-center text-white mb-16 shadow-2xl relative overflow-hidden border border-white/5"
+            className="bg-brand-black rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-16 text-center text-white mb-12 sm:mb-16 shadow-2xl relative overflow-hidden border border-white/5"
           >
             <div className="relative z-10">
-              <span className="inline-block bg-brand-red text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-[0.3em] mb-8 shadow-lg shadow-brand-red/20">
+              <span className="inline-block bg-brand-red text-white px-5 sm:px-6 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] mb-6 sm:mb-8 shadow-lg shadow-brand-red/20">
                 Book Consultation
               </span>
-              <h2 className="text-4xl md:text-6xl font-display font-black mb-8 leading-tight tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-black mb-6 sm:mb-8 leading-tight tracking-tight">
                 {title.split(' ').map((word, i) => (
                   <span key={i} className={word.toLowerCase() === 'consultation' || word.toLowerCase() === 'help' || word.toLowerCase() === 'future' ? 'text-brand-red' : ''}>
                     {word}{' '}
                   </span>
                 ))}
               </h2>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto font-medium leading-relaxed">
+              <p className="text-base sm:text-xl text-white/60 max-w-2xl mx-auto font-medium leading-relaxed">
                 {description}
               </p>
             </div>
@@ -96,7 +96,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
               </button>
             </div>
 
-            <div className="bg-white rounded-[3.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] border border-zinc-100 p-2 md:p-8 relative">
+            <div className="bg-white rounded-[2rem] sm:rounded-[3.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] border border-zinc-100 p-1 sm:p-2 md:p-8 relative">
               <div className="absolute -top-12 -right-12 w-64 h-64 bg-brand-red/5 rounded-full blur-[80px] pointer-events-none" />
               <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-brand-red/5 rounded-full blur-[80px] pointer-events-none" />
               <BookingWidget 

@@ -1,11 +1,13 @@
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
 import { FeaturePromo } from '../components/FeaturePromo';
+import { InstallmentBanner } from '../components/InstallmentBanner';
 import { LeadForm } from '../components/LeadForm';
 import { EligibilityCheck } from '../components/EligibilityCheck';
 import { CredentialsSection } from '../components/CredentialsSection';
 import { ClientRequirements } from '../components/ClientRequirements';
 import { WhyChooseUs } from '../components/WhyChooseUs';
+import { CertificationsBar } from '../components/CertificationsBar';
 import { Testimonials } from '../components/Testimonials';
 import { FAQ } from '../components/FAQ';
 import { LocationSection } from '../components/LocationSection';
@@ -20,77 +22,12 @@ export default function Home() {
       <main>
         <Hero />
         <FeaturePromo />
-        
-        {/* IAA Verification Bar */}
-        <div className="bg-brand-black py-6 border-b border-white/5">
-          <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10 text-center">
-            <div className="max-w-2xl">
-              <motion.p 
-                className="text-white font-bold text-sm md:text-xl inline"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.03,
-                    },
-                  },
-                }}
-              >
-                {"This Immigration Law Firm is IAA Registered. Reg No. F202200117".split("").map((char, index) => (
-                  <motion.span
-                    key={index}
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1 },
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </motion.p>
-              <motion.span 
-                className="text-brand-red ml-2 inline-block font-bold text-sm md:text-xl"
-                initial={{ opacity: 0 }}
-                animate={{ 
-                  opacity: [1, 0.6, 1],
-                  scale: [1, 1.02, 1]
-                }}
-                transition={{ 
-                  opacity: { delay: 2, duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  scale: { delay: 2, duration: 2, repeat: Infinity, ease: "easeInOut" }
-                }}
-              >
-                Click on the Badge to Verify!
-              </motion.span>
-            </div>
-            <motion.a 
-              href="#"
-              className="shrink-0"
-              whileHover={{ scale: 1.05 }}
-              animate={{ 
-                y: [0, -8, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <img 
-                src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" 
-                alt="IAA-Logo" 
-                className="h-28 md:h-36 w-auto"
-                referrerPolicy="no-referrer"
-              />
-            </motion.a>
-          </div>
-        </div>
-
-        <LeadForm />
+        <InstallmentBanner />
         
         <EligibilityCheck />
 
+        <LeadForm />
+        
         <div id="credentials">
           <CredentialsSection />
         </div>
@@ -101,6 +38,7 @@ export default function Home() {
 
         <div id="why-choose-us">
           <WhyChooseUs />
+          <CertificationsBar />
         </div>
 
         <FAQ />
@@ -128,7 +66,7 @@ export default function Home() {
                   >
                     Book Consultation
                   </button>
-                  <a href="tel:+447776668557" className="bg-brand-black text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-900 transition-all">
+                  <a href="tel:03301338857" className="bg-brand-black text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-900 transition-all">
                     Call Us
                   </a>
                 </div>

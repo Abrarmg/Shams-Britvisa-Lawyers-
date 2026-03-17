@@ -25,14 +25,14 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="py-24 bg-zinc-50 overflow-hidden">
+    <section className="py-16 sm:py-24 bg-zinc-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-brand-red font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="text-brand-red font-bold tracking-widest uppercase text-xs sm:text-sm mb-4 block"
           >
             Client Success Stories
           </motion.span>
@@ -40,14 +40,14 @@ export const Testimonials = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-black text-brand-black mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-display font-black text-brand-black mb-6"
           >
             What Our <span className="text-brand-red">Clients Say</span>
           </motion.h2>
-          <div className="w-24 h-1.5 bg-brand-red mx-auto rounded-full" />
+          <div className="w-16 sm:w-24 h-1.5 bg-brand-red mx-auto rounded-full" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {testimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
@@ -55,23 +55,23 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white p-10 rounded-[40px] shadow-xl border border-zinc-100 relative group hover:border-brand-red/20 transition-all"
+              className="bg-white p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] shadow-xl border border-zinc-100 relative group hover:border-brand-red/20 transition-all"
             >
-              <Quote className="absolute top-8 right-8 text-brand-red/10 group-hover:text-brand-red/20 transition-colors" size={48} />
+              <Quote className="absolute top-6 sm:top-8 right-6 sm:right-8 text-brand-red/10 group-hover:text-brand-red/20 transition-colors w-8 h-8 sm:w-12 sm:h-12" />
               
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-1 mb-4 sm:mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="fill-yellow-400 text-yellow-400 w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                 ))}
               </div>
 
-              <p className="text-zinc-600 font-medium leading-relaxed mb-8 relative z-10">
+              <p className="text-zinc-600 text-sm sm:text-base font-medium leading-relaxed mb-6 sm:mb-8 relative z-10">
                 "{testimonial.content}"
               </p>
 
               <div>
-                <p className="font-black text-brand-black text-lg">{testimonial.name}</p>
-                <p className="text-brand-red text-sm font-bold uppercase tracking-wider">{testimonial.role}</p>
+                <p className="font-black text-brand-black text-base sm:text-lg">{testimonial.name}</p>
+                <p className="text-brand-red text-[10px] sm:text-sm font-bold uppercase tracking-wider">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}
@@ -87,10 +87,10 @@ export const Testimonials = () => {
             href="https://share.google/nmdBv77qvd63htL6G"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-brand-black text-white px-10 py-5 rounded-full font-black text-lg hover:bg-brand-red transition-all shadow-2xl group"
+            className="inline-flex items-center gap-2 sm:gap-3 bg-brand-black text-white px-6 sm:px-10 py-4 sm:py-5 rounded-full font-black text-base sm:text-lg hover:bg-brand-red transition-all shadow-2xl group"
           >
             View All Reviews on Google
-            <ExternalLink size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <ExternalLink className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform w-[18px] h-[18px] sm:w-5 sm:h-5" />
           </a>
         </motion.div>
       </div>

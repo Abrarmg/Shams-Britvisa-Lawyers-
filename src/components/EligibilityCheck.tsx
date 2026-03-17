@@ -7,7 +7,7 @@ import {
   AlertCircle, Calendar, ArrowRight
 } from 'lucide-react';
 
-type VisaType = 'WORK' | 'FAMILY' | 'VISITOR' | null;
+type VisaType = 'WORK' | 'FAMILY' | 'VISITOR' | 'SELF_SPONSORSHIP' | 'INNOVATOR_FOUNDER' | null;
 
 interface LeadData {
   name: string;
@@ -29,6 +29,12 @@ interface AssessmentData {
   // Visitor
   shortStay: boolean | null;
   fundsMet: boolean | null;
+  // Self-Sponsorship
+  hasUKCompany: boolean | null;
+  hasBusinessFunds: boolean | null;
+  // Innovator Founder
+  isInnovative: boolean | null;
+  isEndorsed: boolean | null;
 }
 
 export const EligibilityCheck = () => {
@@ -48,7 +54,11 @@ export const EligibilityCheck = () => {
     incomeMet: null,
     relationshipMet: null,
     shortStay: null,
-    fundsMet: null
+    fundsMet: null,
+    hasUKCompany: null,
+    hasBusinessFunds: null,
+    isInnovative: null,
+    isEndorsed: null
   });
 
   const totalSteps = 4;
@@ -112,6 +122,18 @@ export const EligibilityCheck = () => {
       if (metCount === 2) score = 'High';
       else if (metCount === 1) score = 'Medium';
       summary = "You appear to meet the basic requirements for a Standard Visitor Visa. The key challenge is often proving 'ties to home country' and intention to leave.";
+    } else if (assessment.visaType === 'SELF_SPONSORSHIP') {
+      const criteria = [assessment.hasUKCompany, assessment.hasBusinessFunds, assessment.englishMet];
+      const metCount = criteria.filter(c => c === true).length;
+      if (metCount === 3) score = 'High';
+      else if (metCount === 2) score = 'Medium';
+      summary = "Self-Sponsorship is a complex route involving setting up a UK entity. You appear to have the foundations, but corporate compliance is critical.";
+    } else if (assessment.visaType === 'INNOVATOR_FOUNDER') {
+      const criteria = [assessment.isInnovative, assessment.isEndorsed, assessment.englishMet];
+      const metCount = criteria.filter(c => c === true).length;
+      if (metCount === 3) score = 'High';
+      else if (metCount === 2) score = 'Medium';
+      summary = "The Innovator Founder route requires a high level of innovation and endorsement. Meeting these criteria is a strong start for this prestigious visa.";
     }
 
     return { score, summary };
@@ -120,19 +142,19 @@ export const EligibilityCheck = () => {
   const results = calculateResults();
 
   return (
-    <section className="py-24 bg-zinc-50 relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-zinc-50 relative overflow-hidden">
       {/* Background Accents */}
       <div className="absolute top-0 left-0 w-full h-1 bg-brand-red" />
       
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-black text-brand-black mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-brand-black mb-4">
             Free UK Visa Eligibility Check
           </h2>
-          <p className="text-zinc-500 font-medium">Assessment based on 2026 UK Immigration Rules</p>
+          <p className="text-zinc-500 text-sm sm:text-base font-medium">Assessment based on 2026 UK Immigration Rules</p>
         </div>
 
-        <div className="bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-zinc-100 overflow-hidden">
+        <div className="bg-white rounded-[24px] sm:rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-zinc-100 overflow-hidden">
           {/* Progress Bar */}
           <div className="h-1.5 w-full bg-zinc-100">
             <motion.div 
@@ -143,7 +165,7 @@ export const EligibilityCheck = () => {
             />
           </div>
 
-          <div className="p-8 md:p-12">
+          <div className="p-6 sm:p-8 md:p-12">
             <AnimatePresence mode="wait">
               {/* STEP 0: LEAD CAPTURE */}
               {step === 0 && (
@@ -196,7 +218,7 @@ export const EligibilityCheck = () => {
                           required
                           type="tel"
                           className="w-full bg-zinc-50 border border-zinc-100 rounded-xl py-4 pl-12 pr-4 focus:border-brand-red outline-none transition-all"
-                          placeholder="0330 133 885"
+                          placeholder="0330 133 8857"
                           value={lead.phone}
                           onChange={e => setLead({...lead, phone: e.target.value})}
                         />
@@ -234,23 +256,27 @@ export const EligibilityCheck = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                 >
-                  <h3 className="text-2xl font-bold text-brand-black mb-8 text-center">Which visa route are you interested in?</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-brand-black mb-6 sm:mb-8 text-center">Which visa route are you interested in?</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {[
-                      { id: 'WORK', label: 'Skilled Worker', icon: <Briefcase size={32} />, desc: 'Employment based' },
-                      { id: 'FAMILY', label: 'Family / Spouse', icon: <Users size={32} />, desc: 'Partner based' },
-                      { id: 'VISITOR', label: 'Visitor Visa', icon: <Plane size={32} />, desc: 'Tourism or Business' },
+                      { id: 'WORK', label: 'Skilled Worker', icon: <Briefcase size={28} />, desc: 'Employment based' },
+                      { id: 'FAMILY', label: 'Family / Spouse', icon: <Users size={28} />, desc: 'Partner based' },
+                      { id: 'VISITOR', label: 'Visitor Visa', icon: <Plane size={28} />, desc: 'Tourism or Business' },
+                      { id: 'SELF_SPONSORSHIP', label: 'Self-Sponsorship', icon: <ShieldCheck size={28} />, desc: 'Own your business' },
+                      { id: 'INNOVATOR_FOUNDER', label: 'Innovator Founder', icon: <ArrowRight size={28} />, desc: 'New business idea' },
                     ].map((type) => (
                       <button
                         key={type.id}
                         onClick={() => selectVisa(type.id as VisaType)}
-                        className="p-8 rounded-2xl border-2 border-zinc-100 hover:border-brand-red hover:bg-zinc-50 transition-all text-center group"
+                        className="p-6 sm:p-8 rounded-2xl border-2 border-zinc-100 hover:border-brand-red hover:bg-zinc-50 transition-all text-center group flex sm:flex-col items-center gap-4 sm:gap-0"
                       >
-                        <div className="w-16 h-16 bg-zinc-50 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-black group-hover:text-brand-red transition-colors">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-zinc-50 rounded-full flex items-center justify-center sm:mx-auto sm:mb-4 text-brand-black group-hover:text-brand-red transition-colors shrink-0">
                           {type.icon}
                         </div>
-                        <p className="font-bold text-brand-black mb-1">{type.label}</p>
-                        <p className="text-xs text-zinc-400 uppercase tracking-widest">{type.desc}</p>
+                        <div className="text-left sm:text-center">
+                          <p className="font-bold text-brand-black mb-0.5 sm:mb-1">{type.label}</p>
+                          <p className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-widest">{type.desc}</p>
+                        </div>
                       </button>
                     ))}
                   </div>
@@ -276,7 +302,11 @@ export const EligibilityCheck = () => {
                       {assessment.visaType === 'WORK' ? 'W' : assessment.visaType === 'FAMILY' ? 'F' : 'V'}
                     </div>
                     <h3 className="text-2xl font-bold text-brand-black">
-                      {assessment.visaType === 'WORK' ? 'Skilled Worker Assessment' : assessment.visaType === 'FAMILY' ? 'Family Visa Assessment' : 'Visitor Visa Assessment'}
+                      {assessment.visaType === 'WORK' ? 'Skilled Worker Assessment' : 
+                       assessment.visaType === 'FAMILY' ? 'Family Visa Assessment' : 
+                       assessment.visaType === 'VISITOR' ? 'Visitor Visa Assessment' :
+                       assessment.visaType === 'SELF_SPONSORSHIP' ? 'Self-Sponsorship Assessment' :
+                       'Innovator Founder Assessment'}
                     </h3>
                   </div>
 
@@ -333,6 +363,44 @@ export const EligibilityCheck = () => {
                         />
                       </>
                     )}
+                    {assessment.visaType === 'SELF_SPONSORSHIP' && (
+                      <>
+                        <Question 
+                          label="Do you have a UK company or intend to set one up?" 
+                          value={assessment.hasUKCompany}
+                          onChange={(v) => setAssessment({...assessment, hasUKCompany: v})}
+                        />
+                        <Question 
+                          label="Do you have sufficient funds for business operations?" 
+                          value={assessment.hasBusinessFunds}
+                          onChange={(v) => setAssessment({...assessment, hasBusinessFunds: v})}
+                        />
+                        <Question 
+                          label="Is your English level at B2 or higher?" 
+                          value={assessment.englishMet}
+                          onChange={(v) => setAssessment({...assessment, englishMet: v})}
+                        />
+                      </>
+                    )}
+                    {assessment.visaType === 'INNOVATOR_FOUNDER' && (
+                      <>
+                        <Question 
+                          label="Do you have an innovative, viable, and scalable business idea?" 
+                          value={assessment.isInnovative}
+                          onChange={(v) => setAssessment({...assessment, isInnovative: v})}
+                        />
+                        <Question 
+                          label="Has your idea been endorsed by an approved body?" 
+                          value={assessment.isEndorsed}
+                          onChange={(v) => setAssessment({...assessment, isEndorsed: v})}
+                        />
+                        <Question 
+                          label="Is your English level at B2 or higher?" 
+                          value={assessment.englishMet}
+                          onChange={(v) => setAssessment({...assessment, englishMet: v})}
+                        />
+                      </>
+                    )}
                   </div>
 
                   <div className="flex justify-between mt-12">
@@ -347,7 +415,9 @@ export const EligibilityCheck = () => {
                       disabled={
                         assessment.visaType === 'WORK' ? (assessment.hasJobOffer === null || assessment.salaryMet === null || assessment.englishMet === null) :
                         assessment.visaType === 'FAMILY' ? (assessment.partnerStatus === null || assessment.incomeMet === null || assessment.relationshipMet === null) :
-                        (assessment.shortStay === null || assessment.fundsMet === null)
+                        assessment.visaType === 'VISITOR' ? (assessment.shortStay === null || assessment.fundsMet === null) :
+                        assessment.visaType === 'SELF_SPONSORSHIP' ? (assessment.hasUKCompany === null || assessment.hasBusinessFunds === null || assessment.englishMet === null) :
+                        (assessment.isInnovative === null || assessment.isEndorsed === null || assessment.englishMet === null)
                       }
                       className="bg-brand-red text-white px-10 py-4 rounded-xl font-bold hover:bg-red-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-500/20"
                     >
@@ -412,7 +482,11 @@ export const EligibilityCheck = () => {
                           incomeMet: null,
                           relationshipMet: null,
                           shortStay: null,
-                          fundsMet: null
+                          fundsMet: null,
+                          hasUKCompany: null,
+                          hasBusinessFunds: null,
+                          isInnovative: null,
+                          isEndorsed: null
                         });
                       }}
                       className="text-zinc-400 font-bold hover:text-brand-black transition-colors"

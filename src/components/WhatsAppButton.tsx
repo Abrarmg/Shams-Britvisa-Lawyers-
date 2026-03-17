@@ -7,16 +7,28 @@ export const WhatsAppButton = () => {
       href="https://wa.link/yntleg"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center group"
+      className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-6 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center group"
       initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.1 }}
+      animate={{ 
+        scale: [1, 1.1, 1],
+        opacity: 1,
+        boxShadow: [
+          "0 0 0 0px rgba(37, 211, 102, 0.4)",
+          "0 0 0 20px rgba(37, 211, 102, 0)",
+          "0 0 0 0px rgba(37, 211, 102, 0)"
+        ]
+      }}
+      transition={{ 
+        scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+        boxShadow: { duration: 2, repeat: Infinity, ease: "easeOut" }
+      }}
+      whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.9 }}
     >
       <svg
         viewBox="0 0 24 24"
-        width="32"
-        height="32"
+        width="40"
+        height="40"
         fill="currentColor"
         className="transition-transform group-hover:rotate-12"
       >

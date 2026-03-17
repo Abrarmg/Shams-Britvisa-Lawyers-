@@ -56,40 +56,41 @@ export const LeadForm = () => {
   };
 
   return (
-    <section className="py-24 bg-zinc-50 border-b border-zinc-200 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-red/5 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-red/5 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
-
+    <section className="py-24 bg-[#F9FAFB] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* LEFT SIDE: CONTENT */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <motion.span 
-              variants={itemVariants}
-              className="text-brand-red font-bold tracking-widest uppercase text-sm mb-4 block"
-            >
-              Get Expert Advice
-            </motion.span>
-            <motion.h2 
-              variants={itemVariants}
-              className="text-4xl md:text-6xl font-display font-black text-brand-black mb-6 leading-tight"
-            >
-              Have an Immigration <br />
-              <span className="text-brand-red">Query?</span>
-            </motion.h2>
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg text-zinc-600 mb-10 max-w-lg leading-relaxed"
-            >
-              Fill out the form below and one of our IAA regulated experts will get back to you within 24 hours with professional guidance.
-            </motion.p>
-            
-            <div className="space-y-8">
+            <div>
+              <motion.span 
+                variants={itemVariants}
+                className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs mb-6 block"
+              >
+                GET EXPERT ADVICE
+              </motion.span>
+              <motion.h2 
+                variants={itemVariants}
+                className="text-5xl md:text-7xl font-display font-black text-brand-black mb-8 leading-[1.1]"
+              >
+                Request a <br />
+                <span className="text-brand-red">CallBack</span>
+              </motion.h2>
+              <motion.p 
+                variants={itemVariants}
+                className="text-lg text-zinc-500 max-w-lg leading-relaxed mb-12"
+              >
+                Fill out the form below and one of our IAA regulated experts will get back to you within 24 hours with professional guidance.
+              </motion.p>
+            </div>
+
+            <div className="space-y-6">
               {[
                 { 
                   icon: <Send size={20} />, 
@@ -105,117 +106,106 @@ export const LeadForm = () => {
                 <motion.div 
                   key={idx}
                   variants={itemVariants}
-                  className="flex items-center gap-5 group"
+                  className="flex items-center gap-6 group"
                 >
-                  <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-brand-red border border-zinc-100 group-hover:scale-110 group-hover:bg-brand-red group-hover:text-white transition-all duration-300">
+                  <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-brand-red border border-zinc-100 group-hover:scale-105 transition-all duration-300">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="font-bold text-brand-black text-lg">{item.title}</p>
-                    <p className="text-zinc-500">{item.desc}</p>
+                    <p className="font-bold text-brand-black text-xl">{item.title}</p>
+                    <p className="text-zinc-500 text-base">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
+          {/* RIGHT SIDE: FORM CARD */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-white p-8 md:p-12 rounded-[40px] shadow-[0_30px_60px_rgba(0,0,0,0.08)] border border-zinc-100 relative"
+            className="bg-white p-8 md:p-16 rounded-[60px] shadow-[0_40px_100px_rgba(0,0,0,0.05)] border border-zinc-50 relative"
           >
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-brand-red/10 rounded-full blur-2xl pointer-events-none" />
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 ml-1">Full Name</label>
-                  <motion.div 
-                    whileFocus={{ scale: 1.01 }}
-                    className="relative"
-                  >
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 ml-1">Full Name</label>
+                  <div className="relative">
+                    <User className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
                     <input
                       required
                       type="text"
                       placeholder="John Doe"
-                      className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl py-4 pl-12 pr-4 outline-none focus:border-brand-red focus:ring-4 focus:ring-brand-red/5 transition-all"
+                      className="w-full bg-[#F9FAFB] border-none rounded-2xl py-5 pl-14 pr-6 outline-none focus:ring-2 focus:ring-brand-red/10 transition-all text-brand-black font-medium"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
-                  </motion.div>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 ml-1">Phone Number</label>
-                  <motion.div 
-                    whileFocus={{ scale: 1.01 }}
-                    className="relative"
-                  >
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+                <div className="space-y-3">
+                  <label className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 ml-1">Phone Number</label>
+                  <div className="relative">
+                    <Phone className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
                     <input
                       required
                       type="tel"
                       placeholder="+44 7776 668557"
-                      className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl py-4 pl-12 pr-4 outline-none focus:border-brand-red focus:ring-4 focus:ring-brand-red/5 transition-all"
+                      className="w-full bg-[#F9FAFB] border-none rounded-2xl py-5 pl-14 pr-6 outline-none focus:ring-2 focus:ring-brand-red/10 transition-all text-brand-black font-medium"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     />
-                  </motion.div>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 ml-1">Email Address</label>
-                <motion.div 
-                  whileFocus={{ scale: 1.01 }}
-                  className="relative"
-                >
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+              <div className="space-y-3">
+                <label className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 ml-1">Email Address</label>
+                <div className="relative">
+                  <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
                   <input
                     required
                     type="email"
                     placeholder="john@example.com"
-                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl py-4 pl-12 pr-4 outline-none focus:border-brand-red focus:ring-4 focus:ring-brand-red/5 transition-all"
+                    className="w-full bg-[#F9FAFB] border-none rounded-2xl py-5 pl-14 pr-6 outline-none focus:ring-2 focus:ring-brand-red/10 transition-all text-brand-black font-medium"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
-                </motion.div>
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 ml-1">Your Question</label>
-                <motion.div 
-                  whileFocus={{ scale: 1.01 }}
-                  className="relative"
-                >
-                  <MessageSquare className="absolute left-4 top-4 text-zinc-400" size={18} />
+              <div className="space-y-3">
+                <label className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 ml-1">Your Question</label>
+                <div className="relative">
+                  <MessageSquare className="absolute left-5 top-6 text-zinc-400" size={18} />
                   <textarea
                     required
-                    rows={4}
+                    rows={5}
                     placeholder="Tell us about your immigration needs..."
-                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl py-4 pl-12 pr-4 outline-none focus:border-brand-red focus:ring-4 focus:ring-brand-red/5 transition-all resize-none"
+                    className="w-full bg-[#F9FAFB] border-none rounded-2xl py-5 pl-14 pr-6 outline-none focus:ring-2 focus:ring-brand-red/10 transition-all text-brand-black font-medium resize-none"
                     value={formData.question}
                     onChange={(e) => setFormData({ ...formData, question: e.target.value })}
                   />
-                </motion.div>
+                </div>
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full bg-brand-red text-white py-5 rounded-2xl font-black text-lg hover:bg-brand-black transition-all shadow-xl shadow-red-500/20 hover:shadow-brand-black/20 flex items-center justify-center gap-3 group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-              >
-                {isSubmitting ? 'Submitting...' : 'Submit Immigration Query'}
-                {!isSubmitting && <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-              </motion.button>
-              
-              <p className="text-[10px] text-center text-zinc-400 uppercase tracking-widest font-bold">
-                By submitting, you agree to our privacy policy.
-              </p>
+              <div className="pt-4">
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full bg-brand-red text-white py-6 rounded-2xl font-black text-lg hover:bg-[#E31E24] transition-all shadow-[0_20px_40px_rgba(227,30,36,0.2)] flex items-center justify-center gap-4 group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                >
+                  {isSubmitting ? 'Submitting...' : 'Request a CallBack'}
+                  {!isSubmitting && <Send size={20} className="transition-transform group-hover:translate-x-1" />}
+                </motion.button>
+                
+                <p className="text-[10px] text-center text-zinc-400 uppercase tracking-[0.2em] font-bold mt-8">
+                  By submitting, you agree to our privacy policy.
+                </p>
+              </div>
             </form>
           </motion.div>
         </div>

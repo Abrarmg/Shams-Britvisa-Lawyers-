@@ -103,7 +103,7 @@ const ILR3Years = () => {
                   <li className="flex items-center gap-3 font-bold text-zinc-800"><CheckCircle2 className="text-brand-red" size={18} /> Peer-reviewed research leaders</li>
                   <li className="flex items-center gap-3 font-bold text-zinc-800"><CheckCircle2 className="text-brand-red" size={18} /> Award-winning artists</li>
                 </ul>
-                <Link to="/visa-services" className="text-brand-red font-black flex items-center gap-2 hover:gap-3 transition-all">
+                <Link to="/global-talent-visa" className="text-brand-red font-black flex items-center gap-2 hover:gap-3 transition-all">
                   Explore Global Talent <ArrowRight size={18} />
                 </Link>
               </motion.div>
