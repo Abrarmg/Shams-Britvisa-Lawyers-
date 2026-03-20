@@ -68,9 +68,22 @@ export default function DocumentChecking() {
                     <ul className="space-y-4">
                       <li className="flex gap-4">
                         <div className="mt-1">
-                          <a href="https://www.iaa.govt.nz/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform block">
-                            <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-12 w-auto" referrerPolicy="no-referrer" />
-                          </a>
+                          <motion.a 
+                            href="https://portal.immigrationadviceauthority.gov.uk/s/adviser-register" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:scale-110 transition-transform block"
+                            animate={{ 
+                              scale: [1, 1.05, 1],
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                          >
+                            <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-16 w-auto" referrerPolicy="no-referrer" />
+                          </motion.a>
                         </div>
                         <div>
                           <h5 className="font-bold text-brand-black text-sm">IAA Regulated</h5>
