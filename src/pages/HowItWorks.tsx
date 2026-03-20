@@ -87,13 +87,13 @@ export default function HowItWorks() {
     <div className="min-h-screen bg-zinc-50">
       <Navbar />
       
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center mb-20">
+      <main className="pt-24 sm:pt-32 pb-12 sm:pb-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-20">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-display font-extrabold text-brand-black mb-6"
+              className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold text-brand-black mb-4 sm:mb-6"
             >
               How It Works
             </motion.h1>
@@ -101,43 +101,43 @@ export default function HowItWorks() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-2xl text-zinc-500 font-medium"
+              className="text-lg sm:text-2xl text-zinc-500 font-medium"
             >
               Simple. Strategic. Forensic.
             </motion.p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-12">
+          <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-zinc-100 relative overflow-hidden group"
+                className="bg-white rounded-[24px] sm:rounded-[40px] p-6 sm:p-12 shadow-sm border border-zinc-100 relative overflow-hidden group"
               >
-                <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
-                  <div className="w-20 h-20 bg-brand-red/5 rounded-3xl flex items-center justify-center text-brand-red shrink-0 group-hover:scale-110 transition-transform duration-500">
-                    {step.icon}
+                <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start relative z-10">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brand-red/5 rounded-2xl sm:rounded-3xl flex items-center justify-center text-brand-red shrink-0 group-hover:scale-110 transition-transform duration-500">
+                    {React.cloneElement(step.icon as React.ReactElement<any>, { className: "w-6 h-6 sm:w-8 sm:h-8" })}
                   </div>
                   
                   <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="text-brand-red font-display font-black text-4xl opacity-20">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                      <span className="text-brand-red font-display font-black text-3xl sm:text-4xl opacity-20">
                         {step.number}
                       </span>
-                      <h2 className="text-2xl md:text-3xl font-display font-bold text-brand-black">
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-brand-black">
                         {step.title}
                       </h2>
                     </div>
                     
-                    <p className="text-xl text-zinc-600 mb-6 font-medium">
+                    <p className="text-base sm:text-xl text-zinc-600 mb-4 sm:mb-6 font-medium">
                       {step.description}
                     </p>
                     
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 sm:space-y-3">
                       {step.details.map((detail, i) => (
-                        <li key={i} className="flex items-start gap-3 text-zinc-500">
+                        <li key={i} className="flex items-start gap-3 text-zinc-500 text-sm sm:text-base">
                           <div className="w-1.5 h-1.5 bg-brand-red rounded-full mt-2 shrink-0" />
                           <span>{detail}</span>
                         </li>

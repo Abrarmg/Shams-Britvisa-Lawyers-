@@ -142,11 +142,11 @@ export const EligibilityCheck = () => {
   const results = calculateResults();
 
   return (
-    <section className="py-16 sm:py-24 bg-zinc-50 relative overflow-hidden">
+    <section className="py-12 sm:py-24 bg-zinc-50 relative overflow-hidden">
       {/* Background Accents */}
       <div className="absolute top-0 left-0 w-full h-1 bg-brand-red" />
       
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-brand-black mb-4">
             Free UK Visa Eligibility Check
@@ -154,7 +154,7 @@ export const EligibilityCheck = () => {
           <p className="text-zinc-500 text-sm sm:text-base font-medium">Assessment based on 2026 UK Immigration Rules</p>
         </div>
 
-        <div className="bg-white rounded-[24px] sm:rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-zinc-100 overflow-hidden">
+        <div className="bg-white rounded-[20px] sm:rounded-[24px] md:rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-zinc-100 overflow-hidden">
           {/* Progress Bar */}
           <div className="h-1.5 w-full bg-zinc-100">
             <motion.div 
@@ -179,8 +179,8 @@ export const EligibilityCheck = () => {
                     <ShieldCheck className="text-brand-red" size={28} />
                     <h3 className="text-2xl font-bold">Secure Your Assessment</h3>
                   </div>
-                  <form onSubmit={handleLeadSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
+                  <form onSubmit={handleLeadSubmit} className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                       <div className="space-y-2">
                         <label className="text-xs font-bold uppercase tracking-wider text-zinc-400">Full Name</label>
                         <div className="relative">
@@ -224,7 +224,7 @@ export const EligibilityCheck = () => {
                         />
                       </div>
                     </div>
-                    <label className="flex items-start gap-3 cursor-pointer group">
+                    <label className="flex items-start gap-3 cursor-pointer group min-h-[44px]">
                       <input 
                         type="checkbox" 
                         required
@@ -403,10 +403,10 @@ export const EligibilityCheck = () => {
                     )}
                   </div>
 
-                  <div className="flex justify-between mt-12">
+                  <div className="flex flex-col sm:flex-row justify-between mt-12 gap-4">
                     <button 
                       onClick={() => setStep(1)}
-                      className="text-zinc-400 font-bold flex items-center gap-2 hover:text-brand-black transition-colors"
+                      className="text-zinc-400 font-bold flex items-center justify-center sm:justify-start gap-2 hover:text-brand-black transition-colors py-3 min-h-[44px]"
                     >
                       <ChevronLeft size={18} /> Back
                     </button>
@@ -419,7 +419,7 @@ export const EligibilityCheck = () => {
                         assessment.visaType === 'SELF_SPONSORSHIP' ? (assessment.hasUKCompany === null || assessment.hasBusinessFunds === null || assessment.englishMet === null) :
                         (assessment.isInnovative === null || assessment.isEndorsed === null || assessment.englishMet === null)
                       }
-                      className="bg-brand-red text-white px-10 py-4 rounded-xl font-bold hover:bg-red-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-500/20"
+                      className="bg-brand-red text-white w-full sm:w-auto px-10 py-4 rounded-xl font-bold hover:bg-red-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-500/20 min-h-[44px]"
                     >
                       View Results
                     </button>
@@ -504,13 +504,13 @@ export const EligibilityCheck = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 bg-white rounded-[32px] p-8 md:p-12 border border-zinc-100 shadow-sm"
+          className="mt-12 sm:mt-16 bg-white rounded-[20px] sm:rounded-[32px] p-6 sm:p-8 md:p-12 border border-zinc-100 shadow-sm"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-display font-bold text-brand-black mb-2">How It Works</h3>
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-brand-black mb-2">How It Works</h3>
               <p className="text-zinc-500 font-medium mb-4">Simple. Strategic. Forensic.</p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-zinc-400 font-bold uppercase tracking-wider">
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 text-[10px] sm:text-sm text-zinc-400 font-bold uppercase tracking-wider">
                 <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-brand-red" /> Initial Contact</span>
                 <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-brand-red" /> Consultation</span>
                 <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-brand-red" /> Action Plan</span>
@@ -518,7 +518,7 @@ export const EligibilityCheck = () => {
             </div>
             <Link 
               to="/how-it-works"
-              className="group flex items-center gap-3 bg-brand-black text-white px-8 py-4 rounded-full font-bold hover:bg-brand-red transition-all shrink-0"
+              className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-brand-black text-white px-8 py-4 rounded-full font-bold hover:bg-brand-red transition-all shrink-0"
             >
               Read More
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -535,18 +535,18 @@ export const EligibilityCheck = () => {
 };
 
 const Question = ({ label, value, onChange }: { label: string, value: boolean | null, onChange: (v: boolean) => void }) => (
-  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl bg-zinc-50 border border-zinc-100">
-    <p className="font-bold text-brand-black">{label}</p>
+  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-zinc-50 border border-zinc-100">
+    <p className="font-bold text-brand-black text-sm sm:text-base">{label}</p>
     <div className="flex gap-3">
       <button
         onClick={() => onChange(true)}
-        className={`px-8 py-3 rounded-xl font-bold transition-all ${value === true ? 'bg-brand-black text-white shadow-lg shadow-black/20' : 'bg-white text-zinc-400 border border-zinc-100 hover:border-zinc-300'}`}
+        className={`flex-1 sm:flex-none px-6 sm:px-8 py-3 rounded-xl font-bold transition-all min-h-[44px] ${value === true ? 'bg-brand-black text-white shadow-lg shadow-black/20' : 'bg-white text-zinc-400 border border-zinc-100 hover:border-zinc-300'}`}
       >
         Yes
       </button>
       <button
         onClick={() => onChange(false)}
-        className={`px-8 py-3 rounded-xl font-bold transition-all ${value === false ? 'bg-brand-black text-white shadow-lg shadow-black/20' : 'bg-white text-zinc-400 border border-zinc-100 hover:border-zinc-300'}`}
+        className={`flex-1 sm:flex-none px-6 sm:px-8 py-3 rounded-xl font-bold transition-all min-h-[44px] ${value === false ? 'bg-brand-black text-white shadow-lg shadow-black/20' : 'bg-white text-zinc-400 border border-zinc-100 hover:border-zinc-300'}`}
       >
         No
       </button>

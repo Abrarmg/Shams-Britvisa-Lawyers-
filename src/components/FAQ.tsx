@@ -136,9 +136,9 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
     <div className={`border-b border-zinc-100 transition-all duration-300 ${isOpen ? 'bg-zinc-50/50' : ''}`}>
       <button
         onClick={onClick}
-        className="w-full py-6 px-4 flex items-center justify-between text-left group"
+        className="w-full py-5 sm:py-6 px-4 flex items-center justify-between text-left group min-h-[48px]"
       >
-        <span className={`text-lg font-bold transition-colors ${isOpen ? 'text-brand-red' : 'text-brand-black group-hover:text-brand-red'}`}>
+        <span className={`text-base sm:text-lg font-bold transition-colors ${isOpen ? 'text-brand-red' : 'text-brand-black group-hover:text-brand-red'}`}>
           {question}
         </span>
         <div className={`shrink-0 ml-4 transition-transform duration-300 ${isOpen ? 'rotate-180 text-brand-red' : 'text-zinc-400'}`}>
@@ -154,7 +154,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="px-4 pb-6 text-zinc-600 leading-relaxed">
+            <div className="px-4 pb-5 sm:pb-6 text-zinc-600 text-sm sm:text-base leading-relaxed">
               {answer}
             </div>
           </motion.div>
@@ -168,14 +168,14 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12 sm:mb-16">
+    <section className="py-12 sm:py-24 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-brand-red/10 text-brand-red px-4 py-2 rounded-full font-black uppercase tracking-widest text-[10px] sm:text-xs mb-4"
+            className="inline-flex items-center gap-2 bg-brand-red/10 text-brand-red px-4 py-2 rounded-full font-black uppercase tracking-widest text-[10px] sm:text-xs mb-3 sm:mb-4"
           >
             <HelpCircle size={14} />
             Common Questions
@@ -184,7 +184,7 @@ export const FAQ = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-brand-black mb-6"
+            className="text-2xl sm:text-4xl md:text-5xl font-display font-black text-brand-black mb-4 sm:mb-6"
           >
             Frequently Asked <span className="text-brand-red">Questions</span>
           </motion.h2>
@@ -193,7 +193,7 @@ export const FAQ = () => {
           </p>
         </div>
 
-        <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-zinc-100 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-[20px] sm:rounded-[32px] border border-zinc-100 shadow-sm overflow-hidden">
           {faqs.map((faq, idx) => (
             <FAQItem
               key={idx}

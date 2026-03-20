@@ -50,23 +50,23 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="py-12 bg-white"
+          className="py-8 sm:py-12 bg-white"
         >
-          <div className="container mx-auto px-6">
-            <div className="bg-brand-red rounded-[40px] p-12 text-center text-white relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="bg-brand-red rounded-[24px] sm:rounded-[40px] p-8 sm:p-12 text-center text-white relative overflow-hidden">
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-6">Ready to Start Your UK Journey?</h2>
-                <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-extrabold mb-4 sm:mb-6">Ready to Start Your UK Journey?</h2>
+                <p className="text-base sm:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
                   Don't let complex immigration laws hold you back. Get professional advice at an affordable price today.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <button 
                     onClick={() => window.location.href = '/booking'}
-                    className="bg-white text-brand-red px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-100 transition-all shadow-xl"
+                    className="bg-white text-brand-red px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-zinc-100 transition-all shadow-xl w-full sm:w-auto"
                   >
                     Book Consultation
                   </button>
-                  <a href="tel:03301338857" className="bg-brand-black text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-900 transition-all">
+                  <a href="tel:03301338857" className="bg-brand-black text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-zinc-900 transition-all w-full sm:w-auto">
                     Call Us
                   </a>
                 </div>

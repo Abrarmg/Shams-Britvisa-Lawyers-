@@ -27,7 +27,7 @@ export default function Booking() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[80vh] flex items-center pt-32 pb-20 bg-[#0D0D0D] overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center pt-24 sm:pt-32 pb-12 sm:pb-20 bg-[#0D0D0D] overflow-hidden">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-30"
@@ -40,40 +40,40 @@ export default function Booking() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D0D] via-[#0D0D0D]/80 to-transparent z-0" />
         
         {/* Background Glow */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-red/20 rounded-full blur-[120px] -mr-64 -mt-64 z-0" />
+        <div className="absolute top-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-brand-red/20 rounded-full blur-[80px] sm:blur-[120px] -mr-32 sm:-mr-64 -mt-32 sm:-mt-64 z-0" />
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-brand-red font-bold text-xs uppercase tracking-[0.3em] mb-6 block">SPEAK TO AN EXPERT</span>
-              <h1 className="text-6xl md:text-8xl font-condensed font-extrabold leading-[0.9] mb-8 text-white">
+              <span className="text-brand-red font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-4 sm:mb-6 block">SPEAK TO AN EXPERT</span>
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-condensed font-extrabold leading-[0.9] mb-6 sm:mb-8 text-white">
                 Book Your<br />
                 <span className="text-brand-red">Immigration Consultation</span>
               </h1>
-              <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed mb-12">
+              <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-8 sm:mb-12">
                 Get clear, honest advice from a regulated UK immigration adviser. Choose your consultation type and book your preferred time slot instantly.
               </p>
 
-              <div className="flex flex-wrap gap-8 mb-16">
+              <div className="flex flex-wrap gap-4 sm:gap-8 mb-12 sm:mb-16">
                 <div className="flex items-center gap-3 text-white font-medium">
                   <a href="https://www.iaa.govt.nz/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-                    <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-14 w-auto" referrerPolicy="no-referrer" />
+                    <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-10 sm:h-14 w-auto" referrerPolicy="no-referrer" />
                   </a>
-                  <span className="text-sm md:text-base">Regulated by IAA</span>
+                  <span className="text-xs sm:text-base">Regulated by IAA</span>
                 </div>
                 {[
                   "Same-day appointments available",
                   "Online & in-office options"
                 ].map((badge, i) => (
                   <div key={i} className="flex items-center gap-3 text-white font-medium">
-                    <div className="w-6 h-6 rounded-full bg-brand-red flex items-center justify-center">
-                      <CheckCircle2 size={14} className="text-white" />
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-brand-red flex items-center justify-center">
+                      <CheckCircle2 size={12} className="text-white" />
                     </div>
-                    <span className="text-sm md:text-base">{badge}</span>
+                    <span className="text-xs sm:text-base">{badge}</span>
                   </div>
                 ))}
               </div>
@@ -92,14 +92,14 @@ export default function Booking() {
       </section>
 
       {/* CONSULTATION EXPERIENCE HIGHLIGHT */}
-      <section className="py-24 bg-zinc-50 overflow-hidden">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-24 bg-zinc-50 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
               <motion.span 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-brand-red font-bold text-xs uppercase tracking-[0.3em] mb-4 block"
+                className="text-brand-red font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-3 sm:mb-4 block"
               >
                 Premium Experience
               </motion.span>
@@ -107,7 +107,7 @@ export default function Booking() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-6xl font-condensed font-black text-brand-black mb-6 uppercase tracking-tight"
+                className="text-2xl sm:text-4xl md:text-6xl font-condensed font-black text-brand-black mb-4 sm:mb-6 uppercase tracking-tight"
               >
                 Online <span className="text-brand-red">&</span> In-Person
               </motion.h2>
@@ -115,13 +115,13 @@ export default function Booking() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-lg text-zinc-500 max-w-2xl mx-auto font-medium"
+                className="text-sm sm:text-lg text-zinc-500 max-w-2xl mx-auto font-medium"
               >
                 Whether you're across the globe or just around the corner, we provide the same high-level strategic immigration advice.
               </motion.p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {/* Online Card */}
               <motion.div 
                 onClick={() => {
@@ -131,37 +131,37 @@ export default function Booking() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className={`group relative p-10 rounded-[40px] shadow-xl border overflow-hidden transition-all duration-500 cursor-pointer ${
+                className={`group relative p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] shadow-xl border overflow-hidden transition-all duration-500 cursor-pointer ${
                   consultationType === 'online' 
                     ? 'bg-white border-brand-red ring-2 ring-brand-red/20' 
                     : 'bg-white border-zinc-100 hover:border-brand-red/20'
                 }`}
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-brand-red/10 transition-colors" />
+                <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-brand-red/5 rounded-full -mr-12 sm:-mr-16 -mt-12 sm:-mt-16 blur-xl sm:blur-2xl group-hover:bg-brand-red/10 transition-colors" />
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                  <div className="flex items-center justify-between mb-6 sm:mb-8">
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-500 ${
                       consultationType === 'online'
                         ? 'bg-brand-red text-white scale-110'
                         : 'bg-brand-red/5 text-brand-red group-hover:scale-110 group-hover:bg-brand-red group-hover:text-white'
                     }`}>
-                      <Video size={32} />
+                      <Video size={24} className="sm:w-8 sm:h-8" />
                     </div>
-                    <span className="text-brand-red font-bold text-sm uppercase tracking-widest">upto 60 mins</span>
+                    <span className="text-brand-red font-bold text-[10px] sm:text-sm uppercase tracking-widest">upto 60 mins</span>
                   </div>
-                  <h3 className="text-3xl font-condensed font-black text-brand-black mb-4 uppercase tracking-tight">Online Consultation</h3>
-                  <p className="text-zinc-600 font-medium leading-relaxed mb-8">
+                  <h3 className="text-2xl sm:text-3xl font-condensed font-black text-brand-black mb-3 sm:mb-4 uppercase tracking-tight">Online Consultation</h3>
+                  <p className="text-zinc-600 text-sm sm:text-base font-medium leading-relaxed mb-6 sm:mb-8">
                     Connect with our experts from anywhere in the world via Zoom, Microsoft Teams, or WhatsApp Video. Perfect for busy professionals and overseas applicants.
                   </p>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                     {['Secure Video Link', 'Screen Sharing for Documents', 'Digital Action Plan Provided', 'Global Timezone Flexibility'].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm font-bold text-zinc-500">
+                      <li key={i} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-zinc-500">
                         <div className="w-1.5 h-1.5 bg-brand-red rounded-full" />
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <div className={`inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest transition-colors ${
+                  <div className={`inline-flex items-center gap-2 font-bold text-[10px] sm:text-sm uppercase tracking-widest transition-colors ${
                     consultationType === 'online' ? 'text-brand-red' : 'text-zinc-400 group-hover:text-brand-red'
                   }`}>
                     {consultationType === 'online' ? 'Selected' : 'Select Online'}
@@ -179,7 +179,7 @@ export default function Booking() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className={`group relative p-10 rounded-[40px] shadow-xl overflow-hidden transition-all duration-500 cursor-pointer border ${
+                className={`group relative p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] shadow-xl overflow-hidden transition-all duration-500 cursor-pointer border ${
                   consultationType === 'office'
                     ? 'bg-brand-black border-brand-red ring-2 ring-brand-red/20'
                     : 'bg-brand-black border-transparent hover:shadow-brand-red/5'
@@ -195,31 +195,31 @@ export default function Booking() {
                     filter: 'blur(8px)'
                   }}
                 />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-white/10 transition-colors z-0" />
+                <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-white/5 rounded-full -mr-12 sm:-mr-16 -mt-12 sm:-mt-16 blur-xl sm:blur-2xl group-hover:bg-white/10 transition-colors z-0" />
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                  <div className="flex items-center justify-between mb-6 sm:mb-8">
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-500 ${
                       consultationType === 'office'
                         ? 'bg-brand-red text-white scale-110'
                         : 'bg-white/5 text-white group-hover:scale-110 group-hover:bg-brand-red'
                     }`}>
-                      <MapPin size={32} />
+                      <MapPin size={24} className="sm:w-8 sm:h-8" />
                     </div>
-                    <span className="text-brand-red font-bold text-sm uppercase tracking-widest">upto 60 mins</span>
+                    <span className="text-brand-red font-bold text-[10px] sm:text-sm uppercase tracking-widest">upto 60 mins</span>
                   </div>
-                  <h3 className="text-3xl font-condensed font-black text-white mb-4 uppercase tracking-tight">In-Person Meeting</h3>
-                  <p className="text-white/60 font-medium leading-relaxed mb-8">
+                  <h3 className="text-2xl sm:text-3xl font-condensed font-black text-white mb-3 sm:mb-4 uppercase tracking-tight">In-Person Meeting</h3>
+                  <p className="text-white/60 text-sm sm:text-base font-medium leading-relaxed mb-6 sm:mb-8">
                     Visit our modern offices in Manchester for a face-to-face session. Ideal for complex cases requiring physical document review and detailed discussion.
                   </p>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                     {['Private Consultation Suite', 'Document Scanning Service', 'Central Manchester Location', 'Immediate Legal Guidance'].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm font-bold text-white/40">
+                      <li key={i} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-white/40">
                         <div className="w-1.5 h-1.5 bg-brand-red rounded-full" />
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <div className={`inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest transition-colors ${
+                  <div className={`inline-flex items-center gap-2 font-bold text-[10px] sm:text-sm uppercase tracking-widest transition-colors ${
                     consultationType === 'office' ? 'text-brand-red' : 'text-white/20 group-hover:text-brand-red'
                   }`}>
                     {consultationType === 'office' ? 'Selected' : 'Select In-Person'}
@@ -233,20 +233,20 @@ export default function Booking() {
       </section>
 
       {/* BOOKING INTERFACE */}
-      <section id="booking-section" className="py-24 bg-white relative">
-        <div className="container mx-auto px-6">
+      <section id="booking-section" className="py-12 sm:py-24 bg-white relative">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-[1100px] mx-auto">
-            <div className="grid lg:grid-cols-12 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               
               {/* LEFT SIDE: INFO (4 cols) */}
-              <div className="lg:col-span-4 space-y-12">
+              <div className="lg:col-span-4 space-y-8 sm:space-y-12">
                 <div>
-                  <h3 className="text-2xl font-condensed font-black text-brand-black mb-6 uppercase tracking-tight">Why Consult With Us?</h3>
+                  <h3 className="text-xl sm:text-2xl font-condensed font-black text-brand-black mb-4 sm:mb-6 uppercase tracking-tight">Why Consult With Us?</h3>
                   <ul className="space-y-4">
                     <li className="flex gap-4">
                       <div className="mt-1">
                         <a href="https://www.iaa.govt.nz/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform block">
-                          <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-12 w-auto" referrerPolicy="no-referrer" />
+                          <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-10 sm:h-12 w-auto" referrerPolicy="no-referrer" />
                         </a>
                       </div>
                       <div>
@@ -271,12 +271,12 @@ export default function Booking() {
                   </ul>
                 </div>
 
-                <div className="p-8 bg-zinc-50 rounded-3xl border border-zinc-100">
+                <div className="p-6 sm:p-8 bg-zinc-50 rounded-2xl sm:rounded-3xl border border-zinc-100">
                   <h4 className="font-bold text-brand-black mb-4">Consultation Fees</h4>
                   <p className="text-sm text-zinc-500 leading-relaxed mb-6">
                     Our consultation fee is fully refundable if you choose Shams Britvisa Lawyers for your visa application process.
                   </p>
-                  <div className="flex items-center gap-3 text-brand-red font-bold text-sm mb-6">
+                  <div className="flex items-center gap-3 text-brand-red font-bold text-xs sm:text-sm mb-6">
                     <ShieldCheck size={18} />
                     <span>Secure Payment via Stripe, Google & Apple Pay</span>
                   </div>
@@ -284,39 +284,39 @@ export default function Booking() {
                   {/* Receipt info removed */}
                 </div>
 
-                <div className="p-8 bg-brand-red/5 rounded-3xl border border-brand-red/10">
-                  <h4 className="font-condensed font-black text-brand-black text-xl mb-2 uppercase tracking-tight">NEED FAST HELP?</h4>
-                  <p className="text-sm text-zinc-600 mb-4">Call our emergency hotline for immediate assistance with refusals.</p>
-                  <a href="tel:03301338857" className="text-2xl font-black text-brand-red hover:text-brand-black transition-colors">0330 133 8857</a>
+                <div className="p-6 sm:p-8 bg-brand-red/5 rounded-2xl sm:rounded-3xl border border-brand-red/10">
+                  <h4 className="font-condensed font-black text-brand-black text-lg sm:text-xl mb-2 uppercase tracking-tight">NEED FAST HELP?</h4>
+                  <p className="text-xs sm:text-sm text-zinc-600 mb-4">Call our emergency hotline for immediate assistance with refusals.</p>
+                  <a href="tel:03301338857" className="text-xl sm:text-2xl font-black text-brand-red hover:text-brand-black transition-colors">0330 133 8857</a>
                 </div>
 
               </div>
 
               {/* RIGHT SIDE: BOOKING WIDGET (8 cols) */}
               <div className="lg:col-span-8">
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-6 sm:gap-8">
                   {/* Selector */}
                   <div className="flex p-1 bg-zinc-100 rounded-2xl w-full max-w-md mx-auto">
                     <button
                       onClick={() => setConsultationType('online')}
-                      className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-bold transition-all duration-300 ${
+                      className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 ${
                         consultationType === 'online'
                           ? 'bg-white text-brand-red shadow-sm'
                           : 'text-zinc-500 hover:text-brand-black'
                       }`}
                     >
-                      <Video size={18} />
+                      <Video size={16} className="sm:w-[18px] sm:h-[18px]" />
                       Online
                     </button>
                     <button
                       onClick={() => setConsultationType('office')}
-                      className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-bold transition-all duration-300 ${
+                      className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 sm:px-6 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 ${
                         consultationType === 'office'
                           ? 'bg-white text-brand-red shadow-sm'
                           : 'text-zinc-500 hover:text-brand-black'
                       }`}
                     >
-                      <Building2 size={18} />
+                      <Building2 size={16} className="sm:w-[18px] sm:h-[18px]" />
                       In-Office
                     </button>
                   </div>
@@ -326,10 +326,10 @@ export default function Booking() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-zinc-100 p-4 md:p-10 relative"
+                    className="bg-white rounded-[2rem] sm:rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-zinc-100 p-2 sm:p-10 relative"
                   >
-                    <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute -top-6 -right-6 w-24 sm:w-32 h-24 sm:h-32 bg-brand-red/5 rounded-full blur-2xl sm:blur-3xl pointer-events-none" />
+                    <div className="absolute -bottom-6 -left-6 w-24 sm:w-32 h-24 sm:h-32 bg-brand-red/5 rounded-full blur-2xl sm:blur-3xl pointer-events-none" />
                     <BookingWidget 
                       src={consultationType === 'online' ? onlineSrc : officeSrc}
                       id={consultationType === 'online' ? onlineId : officeId}

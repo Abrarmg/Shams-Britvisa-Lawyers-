@@ -22,22 +22,22 @@ export const WhyChooseUs = () => {
   } as const;
 
   return (
-    <section className="py-16 sm:py-24 bg-zinc-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="py-12 sm:py-24 bg-zinc-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-brand-black mb-6 leading-tight">
+            <motion.h2 variants={itemVariants} className="text-2xl sm:text-4xl md:text-5xl font-display font-black text-brand-black mb-4 sm:mb-6 leading-tight text-center lg:text-left">
               Why Choose <span className="text-brand-red">Shams Britvisa Lawyers?</span>
             </motion.h2>
-            <motion.p variants={itemVariants} className="text-xl sm:text-2xl font-bold text-brand-black mb-8 leading-relaxed">
+            <motion.p variants={itemVariants} className="text-lg sm:text-2xl font-bold text-brand-black mb-6 sm:mb-8 leading-relaxed text-center lg:text-left">
               We are your positioning sweet spot: Regulated UK immigration lawyers who combine legal precision with real-world immigrant experience.
             </motion.p>
-            <motion.div variants={itemVariants} className="space-y-6 text-base sm:text-lg text-zinc-600 leading-relaxed">
+            <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6 text-sm sm:text-lg text-zinc-600 leading-relaxed text-center lg:text-left">
               <p>
                 Unlike large, global corporate firms that can feel expensive and impersonal, we provide a human, immigrant-led approach tailored to your specific goals. We avoid the generic, sales-heavy tactics used by high-volume agencies.
               </p>
@@ -57,7 +57,7 @@ export const WhyChooseUs = () => {
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="aspect-square rounded-[40px] sm:rounded-[60px] overflow-hidden shadow-2xl relative z-10 cursor-pointer"
+              className="aspect-square rounded-[24px] sm:rounded-[60px] overflow-hidden shadow-2xl relative z-10 cursor-pointer"
             >
               <img 
                 src="https://i.ibb.co/B2nfsGXf/image.png" 
@@ -66,9 +66,9 @@ export const WhyChooseUs = () => {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 text-white">
-                <p className="text-xl sm:text-2xl font-black mb-1">Shams Sherzad</p>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white">LLB (Hons), IAA Advisor & CIlex AP</p>
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-8 sm:left-8 sm:right-8 text-white">
+                <p className="text-lg sm:text-2xl font-black mb-1">Shams Sherzad</p>
+                <p className="text-[10px] sm:text-sm font-bold uppercase tracking-widest text-white">LLB (Hons), IAA Advisor & CIlex AP</p>
               </div>
             </motion.div>
             

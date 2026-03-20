@@ -37,14 +37,14 @@ export const ClientRequirements = () => {
   ];
 
   return (
-    <section className="py-24 bg-zinc-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+    <section className="py-12 sm:py-24 bg-zinc-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-brand-red font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="text-brand-red font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block"
           >
             Our Expectations
           </motion.span>
@@ -52,16 +52,16 @@ export const ClientRequirements = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-black text-brand-black mb-6"
+            className="text-2xl sm:text-4xl md:text-6xl font-display font-black text-brand-black mb-4 sm:mb-6"
           >
             What We <span className="text-brand-red">Need From You</span>
           </motion.h2>
-          <p className="text-xl text-zinc-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-zinc-600 max-w-2xl mx-auto">
             To provide proper and professional advice, we require full cooperation and transparency from our clients.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {requirements.map((req, idx) => (
             <motion.div
               key={req.id}
@@ -69,18 +69,18 @@ export const ClientRequirements = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white p-8 rounded-[32px] border border-zinc-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
+              className="bg-white p-6 sm:p-8 rounded-[20px] sm:rounded-[32px] border border-zinc-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-brand-red/5 text-brand-red rounded-2xl flex items-center justify-center group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+              <div className="flex items-center gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-brand-red/5 text-brand-red rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:bg-brand-red group-hover:text-white transition-colors duration-300 shrink-0">
                   {req.icon}
                 </div>
-                <span className="text-brand-red/20 font-black text-3xl group-hover:text-brand-red/40 transition-colors">
+                <span className="text-brand-red/20 font-black text-2xl sm:text-3xl group-hover:text-brand-red/40 transition-colors">
                   {req.id}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-brand-black mb-4">{req.title}</h3>
-              <p className="text-zinc-500 leading-relaxed">
+              <h3 className="text-lg sm:text-xl font-bold text-brand-black mb-3 sm:mb-4">{req.title}</h3>
+              <p className="text-zinc-500 text-sm sm:text-base leading-relaxed">
                 {req.description}
               </p>
             </motion.div>
@@ -91,12 +91,12 @@ export const ClientRequirements = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-1 bg-brand-black p-8 rounded-[32px] flex flex-col justify-center items-center text-center text-white relative overflow-hidden"
+            className="lg:col-span-1 bg-brand-black p-6 sm:p-8 rounded-[20px] sm:rounded-[32px] flex flex-col justify-center items-center text-center text-white relative overflow-hidden"
           >
             <div className="relative z-10">
-              <ShieldAlert size={48} className="text-brand-red mb-6 mx-auto" />
-              <h3 className="text-2xl font-bold mb-4">Professional Integrity</h3>
-              <p className="text-white/70 leading-relaxed">
+              <ShieldAlert size={40} className="text-brand-red mb-4 sm:mb-6 mx-auto" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Professional Integrity</h3>
+              <p className="text-white/70 text-sm sm:text-base leading-relaxed">
                 We operate with professionalism and integrity — and we expect full honesty and cooperation from our clients.
               </p>
             </div>

@@ -56,9 +56,9 @@ export const LeadForm = () => {
   };
 
   return (
-    <section className="py-24 bg-[#F9FAFB] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-12 sm:py-24 bg-[#F9FAFB] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* LEFT SIDE: CONTENT */}
           <motion.div
@@ -77,20 +77,20 @@ export const LeadForm = () => {
               </motion.span>
               <motion.h2 
                 variants={itemVariants}
-                className="text-5xl md:text-7xl font-display font-black text-brand-black mb-8 leading-[1.1]"
+                className="text-3xl sm:text-5xl md:text-7xl font-display font-black text-brand-black mb-6 sm:mb-8 leading-[1.1]"
               >
-                Request a <br />
+                Request a <br className="hidden sm:block" />
                 <span className="text-brand-red">CallBack</span>
               </motion.h2>
               <motion.p 
                 variants={itemVariants}
-                className="text-lg text-zinc-500 max-w-lg leading-relaxed mb-12"
+                className="text-base sm:text-lg text-zinc-500 max-w-lg leading-relaxed mb-8 sm:mb-12"
               >
                 Fill out the form below and one of our IAA regulated experts will get back to you within 24 hours with professional guidance.
               </motion.p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {[
                 { 
                   icon: <Send size={20} />, 
@@ -106,14 +106,14 @@ export const LeadForm = () => {
                 <motion.div 
                   key={idx}
                   variants={itemVariants}
-                  className="flex items-center gap-6 group"
+                  className="flex items-center gap-4 sm:gap-6 group"
                 >
-                  <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-brand-red border border-zinc-100 group-hover:scale-105 transition-all duration-300">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl sm:rounded-2xl shadow-sm flex items-center justify-center text-brand-red border border-zinc-100 group-hover:scale-105 transition-all duration-300 shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="font-bold text-brand-black text-xl">{item.title}</p>
-                    <p className="text-zinc-500 text-base">{item.desc}</p>
+                    <p className="font-bold text-brand-black text-lg sm:text-xl">{item.title}</p>
+                    <p className="text-zinc-500 text-sm sm:text-base">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -126,10 +126,10 @@ export const LeadForm = () => {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-white p-8 md:p-16 rounded-[60px] shadow-[0_40px_100px_rgba(0,0,0,0.05)] border border-zinc-50 relative"
+            className="bg-white p-6 sm:p-10 md:p-16 rounded-[32px] sm:rounded-[60px] shadow-[0_40px_100px_rgba(0,0,0,0.05)] border border-zinc-50 relative"
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid md:grid-cols-2 gap-8">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-3">
                   <label className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 ml-1">Full Name</label>
                   <div className="relative">
@@ -196,7 +196,7 @@ export const LeadForm = () => {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-brand-red text-white py-6 rounded-2xl font-black text-lg hover:bg-[#E31E24] transition-all shadow-[0_20px_40px_rgba(227,30,36,0.2)] flex items-center justify-center gap-4 group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full bg-brand-red text-white py-5 sm:py-6 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg hover:bg-[#E31E24] transition-all shadow-[0_20px_40px_rgba(227,30,36,0.2)] flex items-center justify-center gap-4 group min-h-[44px] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? 'Submitting...' : 'Request a CallBack'}
                   {!isSubmitting && <Send size={20} className="transition-transform group-hover:translate-x-1" />}

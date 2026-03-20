@@ -48,7 +48,7 @@ export const Hero = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-[156px] pb-16 overflow-hidden bg-brand-black">
+    <section className="relative min-h-screen flex items-center pt-[120px] sm:pt-[156px] pb-16 overflow-hidden bg-brand-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -72,15 +72,17 @@ export const Hero = () => {
       {/* Navigation Arrows */}
       <button 
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 z-30 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-brand-red transition-all group"
+        className="absolute left-4 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-brand-red transition-all group"
       >
-        <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
+        <ChevronLeft size={20} className="md:hidden group-hover:-translate-x-0.5 transition-transform" />
+        <ChevronLeft size={24} className="hidden md:block group-hover:-translate-x-0.5 transition-transform" />
       </button>
       <button 
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 z-30 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-brand-red transition-all group"
+        className="absolute right-4 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-brand-red transition-all group"
       >
-        <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
+        <ChevronRight size={20} className="md:hidden group-hover:translate-x-0.5 transition-transform" />
+        <ChevronRight size={24} className="hidden md:block group-hover:translate-x-0.5 transition-transform" />
       </button>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -101,25 +103,25 @@ export const Hero = () => {
                 {slides[currentSlide].heading}
               </motion.div>
               
-              <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-extrabold text-white leading-[1.15] mb-8 drop-shadow-md">
+              <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-display font-extrabold text-white leading-[1.15] mb-6 md:mb-8 drop-shadow-md">
                 {slides[currentSlide].subheadline}
               </h1>
 
-              <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl leading-relaxed font-medium">
+              <p className="text-base md:text-xl text-white/90 mb-8 md:mb-12 max-w-2xl leading-relaxed font-medium">
                 {slides[currentSlide].description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
                   to={slides[currentSlide].link}
-                  className="group bg-brand-red text-white px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-red-700 transition-all shadow-xl shadow-red-500/20"
+                  className="group bg-brand-red text-white w-full sm:w-auto px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-red-700 transition-all shadow-xl shadow-red-500/20"
                 >
                   Learn More
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link 
                   to="/booking"
-                  className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-white/20 transition-all"
+                  className="bg-white/10 backdrop-blur-md border border-white/20 text-white w-full sm:w-auto px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-white/20 transition-all"
                 >
                   Book Consultation
                 </Link>
@@ -141,11 +143,11 @@ export const Hero = () => {
       </div>
 
       {/* IAA Verification Bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 py-6 md:py-8">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 text-center">
+      <div className="absolute bottom-0 left-0 right-0 z-20 py-4 md:py-8 bg-black/20 backdrop-blur-sm">
+        <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 text-center">
           <div className="max-w-2xl">
             <motion.p 
-              className="text-white font-bold text-xs md:text-lg inline"
+              className="text-white font-bold text-[10px] sm:text-xs md:text-lg inline"
               initial="hidden"
               animate="visible"
               variants={{
@@ -169,7 +171,7 @@ export const Hero = () => {
               ))}
             </motion.p>
             <motion.span 
-              className="text-brand-red ml-2 inline-block font-bold text-xs md:text-lg"
+              className="text-brand-red ml-2 inline-block font-bold text-[10px] sm:text-xs md:text-lg"
               initial={{ opacity: 0 }}
               animate={{ 
                 opacity: [1, 0.6, 1],
@@ -201,7 +203,7 @@ export const Hero = () => {
             <img 
               src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" 
               alt="IAA-Logo" 
-              className="h-24 md:h-36 w-auto"
+              className="h-16 md:h-36 w-auto"
               referrerPolicy="no-referrer"
             />
           </motion.a>

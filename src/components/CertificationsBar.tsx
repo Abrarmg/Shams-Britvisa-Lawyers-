@@ -9,11 +9,6 @@ export const CertificationsBar = () => {
       className: "h-10 sm:h-14" 
     },
     { 
-      src: "https://i.ibb.co/VPt2xXW/IAA-Logo.png", 
-      alt: "IAA Logo",
-      className: "h-14 sm:h-20" 
-    },
-    { 
       src: "https://i.ibb.co/8Dc4nr8L/image.png", 
       alt: "Certification Logo",
       className: "h-10 sm:h-14" 
@@ -24,16 +19,16 @@ export const CertificationsBar = () => {
   const marqueeLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
 
   return (
-    <div className="bg-zinc-900 py-12 overflow-hidden border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <h2 className="text-white font-bold text-xl sm:text-3xl tracking-tight text-center">
+    <div className="bg-zinc-900 py-8 sm:py-12 overflow-hidden border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+        <h2 className="text-white font-bold text-lg sm:text-3xl tracking-tight text-center">
           Our Certifications & Accreditations
         </h2>
       </div>
       
       <div className="relative flex overflow-x-hidden">
         <motion.div 
-          className="flex whitespace-nowrap gap-12 sm:gap-24 items-center"
+          className="flex whitespace-nowrap gap-8 sm:gap-24 items-center"
           animate={{
             x: ["-50%", "0%"],
           }}

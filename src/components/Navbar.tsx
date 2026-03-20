@@ -59,18 +59,20 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top Contact Bar */}
-      <div className="bg-brand-black text-white py-2 px-6 border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center sm:justify-between items-center gap-4 text-[11px] sm:text-xs font-bold uppercase tracking-widest">
-          <div className="flex items-center gap-6">
+      <div className="bg-brand-black text-white py-2 px-4 sm:px-6 border-b border-white/10">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
             <a href="tel:03301338857" className="flex items-center gap-2 hover:text-brand-red transition-colors group">
-              <div className="w-6 h-6 bg-brand-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Phone size={12} className="text-white" />
+              <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Phone size={10} className="text-white sm:hidden" />
+                <Phone size={12} className="text-white hidden sm:block" />
               </div>
               <span>0330 133 8857</span>
             </a>
             <a href="mailto:info@shamsbvlawyers.com" className="flex items-center gap-2 hover:text-brand-red transition-colors group">
-              <div className="w-6 h-6 bg-brand-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Mail size={12} className="text-white" />
+              <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Mail size={10} className="text-white sm:hidden" />
+                <Mail size={12} className="text-white hidden sm:block" />
               </div>
               <span>info@shamsbvlawyers.com</span>
             </a>
@@ -88,7 +90,7 @@ export const Navbar = () => {
           <img 
             src="https://i.ibb.co/rfyLd4Sj/image-640x187-1.png" 
             alt="Shams Britvisa Logo" 
-            className="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+            className="h-10 sm:h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </Link>
 
@@ -195,14 +197,16 @@ export const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl shadow-2xl border-t border-black/5 overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-black/5 flex flex-col"
+            style={{ maxHeight: 'calc(100vh - 120px)' }}
           >
-            <div className="p-8 flex flex-col gap-4 max-h-[80vh] overflow-y-auto">
+            <div className="p-6 flex-1 overflow-y-auto">
               {navLinks.map((link) => (
-                <div key={link.name}>
+                <div key={link.name} className="mb-4 last:mb-0">
                   {link.dropdown ? (
                     <div className="py-2">
                       <span 
@@ -212,16 +216,16 @@ export const Navbar = () => {
                       </span>
                       <div className="grid gap-6 pl-4 border-l border-zinc-100">
                         {link.dropdown.map((group, idx) => (
-                          <div key={idx} className="mb-4">
-                            <span className="text-[13px] font-bold text-[#1a1a1a] uppercase tracking-wider mb-2 block">
+                          <div key={idx} className="mb-4 last:mb-0">
+                            <span className="text-[13px] font-bold text-[#1a1a1a] uppercase tracking-wider mb-3 block">
                               {group.title}
                             </span>
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-1">
                               {group.links.map((item, lIdx) => (
                                 <Link
                                   key={lIdx}
                                   to={item.href}
-                                  className="text-[14px] text-[#444444] hover:text-[#E8192C] transition-colors"
+                                  className="py-3 text-[14px] text-[#444444] hover:text-[#E8192C] transition-colors min-h-[44px] flex items-center"
                                   onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                   {item.name}
@@ -235,7 +239,7 @@ export const Navbar = () => {
                   ) : (
                     <Link
                       to={link.href || '#'}
-                      className="block py-3 text-base font-bold text-brand-black hover:text-brand-red transition-colors"
+                      className="block py-4 text-base font-bold text-brand-black hover:text-brand-red transition-colors min-h-[44px] flex items-center"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
@@ -243,15 +247,15 @@ export const Navbar = () => {
                   )}
                 </div>
               ))}
-              <div className="mt-6 pt-8 border-t border-zinc-100">
-                <Link 
-                  to="/booking"
-                  className="bg-brand-red text-white w-full py-4 rounded-full font-bold text-center block hover:bg-red-700 transition-all shadow-sm"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Book Consultation
-                </Link>
-              </div>
+            </div>
+            <div className="p-6 bg-white border-t border-zinc-100 sticky bottom-0">
+              <Link 
+                to="/booking"
+                className="bg-brand-red text-white w-full py-4 rounded-full font-bold text-center block hover:bg-red-700 transition-all shadow-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Book Consultation
+              </Link>
             </div>
           </motion.div>
         )}

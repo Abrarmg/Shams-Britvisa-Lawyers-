@@ -15,7 +15,7 @@ interface FeatureCardProps {
 const FeatureCard = ({ image, heading, subheadline, description, link }: FeatureCardProps) => {
   const CardContent = (
     <>
-      <div className="h-48 sm:h-64 overflow-hidden relative">
+      <div className="h-40 sm:h-64 overflow-hidden relative">
         <img 
           src={image} 
           alt={heading} 
@@ -24,7 +24,7 @@ const FeatureCard = ({ image, heading, subheadline, description, link }: Feature
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
-      <div className="p-6 sm:p-8 flex flex-col flex-grow">
+      <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-grow">
         <h3 className="text-brand-red font-black text-xl sm:text-2xl mb-2 uppercase tracking-tight">
           {heading}
         </h3>
@@ -45,7 +45,7 @@ const FeatureCard = ({ image, heading, subheadline, description, link }: Feature
   return (
     <motion.div 
       whileHover={{ y: -10 }}
-      className="bg-white rounded-[32px] overflow-hidden shadow-xl border border-zinc-100 flex flex-col h-full"
+      className="bg-white rounded-[20px] sm:rounded-[32px] overflow-hidden shadow-xl border border-zinc-100 flex flex-col h-full"
     >
       {link ? (
         <Link to={link} className="flex flex-col h-full">
@@ -86,9 +86,9 @@ export const FeaturePromo = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="py-12 sm:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, idx) => (
             <FeatureCard key={idx} {...feature} />
           ))}
