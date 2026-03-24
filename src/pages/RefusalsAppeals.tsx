@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { motion } from 'motion/react';
-import { CheckCircle2, Clock, Phone, Video, ArrowRight, Check, Users, AlertCircle, FileText, Scale, Gavel, Info, Briefcase } from 'lucide-react';
+import { CheckCircle2, Clock, Phone, Check, AlertCircle, FileText, Info, Briefcase } from 'lucide-react';
 import { BookingSection } from '../components/BookingSection';
 
 // --- Main Page Component ---
@@ -176,98 +176,7 @@ export default function RefusalsAppeals() {
           </div>
         </section>
 
-        {/* Immigration Appeals */}
-        <section className="py-24 bg-zinc-50">
-          <div className="container mx-auto px-6">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-6 mb-12">
-                <div className="w-16 h-16 bg-brand-black text-white rounded-2xl flex items-center justify-center shadow-xl">
-                  <Scale size={32} />
-                </div>
-                <h2 className="text-4xl font-black text-brand-black">Immigration Appeals</h2>
-              </div>
-              
-              <div className="grid lg:grid-cols-2 gap-12">
-                <div className="space-y-8">
-                  <p className="text-xl text-zinc-600 leading-relaxed">
-                    If you have been granted a right of appeal, you may challenge the refusal before the First-tier Tribunal (Immigration and Asylum Chamber).
-                  </p>
-                  <div className="bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm">
-                    <h4 className="font-black text-brand-black mb-4">Cases That May Carry Appeal Rights:</h4>
-                    <ul className="space-y-3">
-                      {[
-                        'Spouse visa refusals (Human Rights grounds)',
-                        'Family visa refusals',
-                        'Human rights claims',
-                        'Protection claims'
-                      ].map((item, i) => (
-                        <li key={i} className="flex gap-3 text-zinc-500 font-bold text-sm">
-                          <Check size={16} className="text-brand-red shrink-0" /> {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
 
-                <div className="bg-brand-red text-white p-10 rounded-[40px] shadow-2xl">
-                  <h4 className="text-2xl font-black mb-6">Appeals Require:</h4>
-                  <div className="space-y-4">
-                    {[
-                      'Legal grounds of challenge',
-                      'Detailed witness statements',
-                      'Supporting documentary evidence',
-                      'Representation at tribunal hearing'
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-4 p-4 bg-white/10 rounded-2xl border border-white/20">
-                        <Gavel size={20} />
-                        <span className="font-bold">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="mt-8 text-white/80 font-medium">
-                    Our Manchester-based immigration lawyers prepare strong appeal bundles and represent clients throughout the tribunal process.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Human Rights & Judicial Review */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="bg-zinc-50 p-12 rounded-[40px] border border-zinc-100">
-                <h2 className="text-3xl font-black text-brand-black mb-8">Human Rights Appeals (Article 8)</h2>
-                <p className="text-zinc-600 mb-8 leading-relaxed">
-                  Many family-based refusals involve Article 8 of the European Convention on Human Rights (Right to Family and Private Life). If your refusal interferes disproportionately with your family life, you may have strong appeal grounds.
-                </p>
-                <div className="p-6 bg-white rounded-2xl border border-zinc-100">
-                  <p className="font-bold text-brand-red">
-                    We build strategic Article 8 arguments supported by case law and Home Office policy guidance.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-zinc-50 p-12 rounded-[40px] border border-zinc-100">
-                <h2 className="text-3xl font-black text-brand-black mb-8">Judicial Review</h2>
-                <p className="text-zinc-600 mb-8 leading-relaxed">
-                  If there is no right of appeal and the Home Office decision is unlawful or procedurally unfair, Judicial Review may be an option.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  {['Unlawful decisions', 'Irrational reasoning', 'Procedural unfairness', 'Failure to follow policy'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs font-bold text-zinc-500">
-                      <div className="w-1.5 h-1.5 bg-brand-red rounded-full" /> {item}
-                    </div>
-                  ))}
-                </div>
-                <p className="text-sm text-zinc-400 italic">
-                  Judicial Review requires specialist legal expertise and strict compliance with court deadlines.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Sponsor Licence & Specific Refusals */}
         <section className="py-24 bg-brand-black text-white">
@@ -312,55 +221,6 @@ export default function RefusalsAppeals() {
           </div>
         </section>
 
-        {/* Time Limits & Why Us */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="max-w-5xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-16">
-                <div className="bg-zinc-50 p-10 rounded-[40px] border border-zinc-100">
-                  <h2 className="text-3xl font-black text-brand-black mb-8 flex items-center gap-4">
-                    <Clock className="text-brand-red" /> Strict Time Limits
-                  </h2>
-                  <div className="space-y-4 mb-8">
-                    <div className="flex justify-between items-center p-4 bg-white rounded-xl shadow-sm">
-                      <span className="font-bold">Inside UK Appeals</span>
-                      <span className="text-brand-red font-black">14 Days</span>
-                    </div>
-                    <div className="flex justify-between items-center p-4 bg-white rounded-xl shadow-sm">
-                      <span className="font-bold">Outside UK Appeals</span>
-                      <span className="text-brand-red font-black">28 Days</span>
-                    </div>
-                    <div className="flex justify-between items-center p-4 bg-white rounded-xl shadow-sm">
-                      <span className="font-bold">Admin Review (Usually)</span>
-                      <span className="text-brand-red font-black">14 Days</span>
-                    </div>
-                  </div>
-                  <p className="text-sm text-zinc-500 font-bold text-center">
-                    Failure to act within time limits may remove your right to challenge. Contact us immediately.
-                  </p>
-                </div>
-
-                <div>
-                  <h2 className="text-3xl font-black text-brand-black mb-8">Why Choose Shams Britvisa?</h2>
-                  <div className="grid gap-3">
-                    {[
-                      'Specialist immigration refusal expertise',
-                      'Detailed refusal letter analysis',
-                      'Strong legal representations',
-                      'Tribunal appeal preparation',
-                      'Urgent deadline management',
-                      'Manchester-based immigration lawyers'
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-3 text-zinc-600 font-bold">
-                        <Check size={18} className="text-emerald-500" /> {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* What To Do Section */}
         <section className="py-24 bg-zinc-50">
