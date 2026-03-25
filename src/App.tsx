@@ -21,6 +21,7 @@ import DocumentChecking from './pages/DocumentChecking';
 import Booking from './pages/Booking';
 import Blog from './pages/Blog';
 import Installments from './pages/Installments';
+import SeasonalWorkerVisa from './pages/SeasonalWorkerVisa';
 import CorporateImmigration from './pages/CorporateImmigration';
 import HighPotentialIndividualVisa from './pages/HighPotentialIndividualVisa';
 import FastTrackILR from './pages/FastTrackILR';
@@ -63,6 +64,7 @@ export default function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/installments" element={<Installments />} />
+        <Route path="/seasonal-worker-visa" element={<SeasonalWorkerVisa />} />
         <Route path="/corporate-immigration" element={<CorporateImmigration />} />
         <Route path="/high-potential-individual-visa" element={<HighPotentialIndividualVisa />} />
         <Route path="/fast-track-ilr" element={<FastTrackILR />} />

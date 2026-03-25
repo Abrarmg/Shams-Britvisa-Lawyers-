@@ -15,6 +15,7 @@ export const Navbar = () => {
         { name: 'Sponsor Licence & Work Routes', href: '/sponsor-licence' },
         { name: 'Self-Sponsorship Route', href: '/self-sponsorship' },
         { name: 'Skilled Worker', href: '/skilled-worker' },
+        { name: 'Seasonal Worker Visa', href: '/seasonal-worker-visa' },
         { name: 'Corporate Immigration', href: '/corporate-immigration' },
         { name: 'Innovator Founder Visa', href: '/innovator-founder' },
         { name: 'High Potential Individual Visa', href: '/high-potential-individual-visa' },

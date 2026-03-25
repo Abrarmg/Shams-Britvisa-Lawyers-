@@ -7,16 +7,27 @@ import { CreditCard, Calendar, CheckCircle, ShieldCheck } from 'lucide-react';
 export default function Installments() {
   const plans = [
     {
-      title: "Standard Plan",
-      description: "Split your legal fees into 3 manageable monthly payments.",
-      features: ["0% Interest", "No Credit Check", "Instant Approval"],
-      icon: <Calendar className="text-brand-red" size={32} />
+      title: "Full Payment",
+      tag: "Most popular",
+      description: "Pay in full as representations are made. Simple, straightforward, and settled at each stage of your case.",
+      features: [
+        "Payment tied to each representation",
+        "No outstanding balance",
+        "Instant confirmation",
+        "0% Interest"
+      ],
+      icon: <CheckCircle className="text-brand-red" size={32} />
     },
     {
-      title: "Extended Plan",
-      description: "For larger cases, spread the cost over 6 months.",
-      features: ["Low Fixed Fee", "Flexible Dates", "Dedicated Support"],
-      icon: <CreditCard className="text-brand-red" size={32} />
+      title: "Two Instalments",
+      description: "Split your legal fees into two manageable payments. First instalment upfront, second at an agreed milestone.",
+      features: [
+        "50/50 split across two payments",
+        "Flexible agreed payment dates",
+        "No credit check required",
+        "Dedicated support throughout"
+      ],
+      icon: <Calendar className="text-brand-red" size={32} />
     }
   ];
 
@@ -32,10 +43,10 @@ export default function Installments() {
             className="max-w-4xl mx-auto text-center mb-12 sm:mb-16"
           >
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-black text-brand-black mb-4 sm:mb-6 uppercase tracking-tight">
-              Pay in <span className="text-brand-red">Installments</span>
+              Flexible <span className="text-brand-red">Payment Options</span>
             </h1>
-            <p className="text-base sm:text-xl text-zinc-600 leading-relaxed">
-              We believe quality legal advice should be accessible to everyone. Our flexible payment plans allow you to start your UK journey today without the financial burden of upfront costs.
+            <p className="text-base sm:text-xl text-zinc-600 leading-relaxed max-w-2xl mx-auto">
+              We believe quality legal advice should be accessible to everyone. Choose the payment structure that works best for your situation — no hidden fees, no surprises.
             </p>
           </motion.div>
 
@@ -43,11 +54,16 @@ export default function Installments() {
             {plans.map((plan, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-zinc-50 p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] border border-zinc-100 hover:shadow-2xl transition-all group"
+                className="bg-zinc-50 p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] border border-zinc-100 hover:shadow-2xl transition-all group relative"
               >
+                {plan.tag && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-red text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
+                    {plan.tag}
+                  </div>
+                )}
                 <div className="mb-4 sm:mb-6 bg-white w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
                   {React.cloneElement(plan.icon as React.ReactElement<any>, { size: 28, className: "sm:w-8 sm:h-8 text-brand-red" })}
                 </div>
@@ -80,7 +96,7 @@ export default function Installments() {
                 onClick={() => window.location.href = '/booking'}
                 className="bg-brand-red text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-red-700 transition-all shadow-xl w-full sm:w-auto"
               >
-                Apply for Installment Plan
+                Book a Consultation
               </button>
             </div>
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full -mr-32 -mt-32 blur-3xl" />
