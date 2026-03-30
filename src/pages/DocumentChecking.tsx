@@ -5,6 +5,8 @@ import { motion } from 'motion/react';
 import { FileSearch, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { DocumentCheckingForm } from '../components/DocumentCheckingForm';
 
+import { IAABadge } from '../components/IAABadge';
+
 export default function DocumentChecking() {
   return (
     <div className="min-h-screen bg-white selection:bg-brand-red selection:text-white">
@@ -68,22 +70,7 @@ export default function DocumentChecking() {
                     <ul className="space-y-4">
                       <li className="flex gap-4">
                         <div className="mt-1">
-                          <motion.a 
-                            href="https://portal.immigrationadviceauthority.gov.uk/s/adviser-register" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="hover:scale-110 transition-transform block"
-                            animate={{ 
-                              scale: [1, 1.05, 1],
-                            }}
-                            transition={{
-                              duration: 3,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
-                          >
-                            <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-16 w-auto" referrerPolicy="no-referrer" />
-                          </motion.a>
+                          <IAABadge labelPosition="top" className="scale-75 origin-top-left" />
                         </div>
                         <div>
                           <h5 className="font-bold text-brand-black text-sm">IAA Regulated</h5>

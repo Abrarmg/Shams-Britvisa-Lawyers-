@@ -34,6 +34,8 @@ const slides = [
   }
 ];
 
+import { IAABadge } from './IAABadge';
+
 export const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -185,28 +187,7 @@ export const Hero = () => {
               Click on the Badge to Verify!
             </motion.span>
           </div>
-          <motion.a 
-            href="https://portal.immigrationadviceauthority.gov.uk/s/adviser-register"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0"
-            whileHover={{ scale: 1.05 }}
-            animate={{ 
-              y: [0, -5, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <img 
-              src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" 
-              alt="IAA-Logo" 
-              className="h-16 md:h-36 w-auto"
-              referrerPolicy="no-referrer"
-            />
-          </motion.a>
+          <IAABadge labelPosition="bottom" className="scale-75 md:scale-100" />
         </div>
       </div>
     </section>

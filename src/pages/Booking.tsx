@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import { BookingWidget } from '../components/BookingWidget';
 
+import { IAABadge } from '../components/IAABadge';
+
 export default function Booking() {
   const [consultationType, setConsultationType] = useState<'online' | 'office'>('online');
 
@@ -60,22 +62,7 @@ export default function Booking() {
 
               <div className="flex flex-wrap gap-4 sm:gap-8 mb-12 sm:mb-16">
                 <div className="flex items-center gap-3 text-white font-medium">
-                  <motion.a 
-                    href="https://portal.immigrationadviceauthority.gov.uk/s/adviser-register" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="hover:scale-110 transition-transform"
-                    animate={{ 
-                      y: [0, -5, 0],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-14 sm:h-20 w-auto" referrerPolicy="no-referrer" />
-                  </motion.a>
+                  <IAABadge labelPosition="top" className="scale-50 sm:scale-75 origin-left" />
                   <span className="text-xs sm:text-base">Regulated by IAA</span>
                 </div>
                 {[
@@ -258,22 +245,7 @@ export default function Booking() {
                   <ul className="space-y-4">
                     <li className="flex gap-4">
                       <div className="mt-1">
-                        <motion.a 
-                          href="https://portal.immigrationadviceauthority.gov.uk/s/adviser-register" 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="hover:scale-110 transition-transform block"
-                          animate={{ 
-                            scale: [1, 1.05, 1],
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          <img src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" alt="IAA Logo" className="h-14 sm:h-16 w-auto" referrerPolicy="no-referrer" />
-                        </motion.a>
+                        <IAABadge labelPosition="top" className="scale-75 origin-top-left" />
                       </div>
                       <div>
                         <h5 className="font-bold text-brand-black text-sm">IAA Regulated</h5>
