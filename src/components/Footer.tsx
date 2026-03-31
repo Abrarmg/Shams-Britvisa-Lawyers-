@@ -49,6 +49,7 @@ export const Footer = () => {
                 { name: 'How It Works', href: '/how-it-works' },
                 { name: 'About Us', href: '/#why-choose-us' },
                 { name: 'Our Experts', href: '/#credentials' },
+                { name: 'IAA Verification', href: '/iaa-verification' },
                 { name: 'Privacy Policy', href: '/privacy-policy' },
                 { name: 'Legal Disclaimer', href: '/legal-disclaimer' }
               ].map((link) => (

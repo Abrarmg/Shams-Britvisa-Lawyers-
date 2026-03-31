@@ -39,6 +39,7 @@ import FamilyVisa from './pages/FamilyVisa';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import LegalDisclaimer from './pages/LegalDisclaimer';
 import ThankYou from './pages/ThankYou';
+import IAAVerification from './pages/IAAVerification';
 import ScrollToTop from './components/ScrollToTop';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
@@ -82,6 +83,7 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/iaa-verification" element={<IAAVerification />} />
       </Routes>
       <WhatsAppButton />
     </Router>
