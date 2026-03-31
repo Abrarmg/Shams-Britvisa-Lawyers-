@@ -34,8 +34,6 @@ const slides = [
   }
 ];
 
-import { IAABadge } from './IAABadge';
-
 export const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -187,7 +185,28 @@ export const Hero = () => {
               Click on the Badge to Verify!
             </motion.span>
           </div>
-          <IAABadge labelPosition="bottom" className="scale-75 md:scale-100" />
+          <motion.a 
+            href="https://home.oisc.gov.uk/digital_badges/verification.html?111105115099+109101109098101114098097100103101+100101102097117108116046115118103+104116116112115058047047119119119046115104097109115098118108097119121101114115046099111109047"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0"
+            whileHover={{ scale: 1.05 }}
+            animate={{ 
+              y: [0, -5, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <img 
+              src="https://i.ibb.co/VPt2xXW/IAA-Logo.png" 
+              alt="IAA-Logo" 
+              className="h-16 md:h-36 w-auto"
+              referrerPolicy="no-referrer"
+            />
+          </motion.a>
         </div>
       </div>
     </section>

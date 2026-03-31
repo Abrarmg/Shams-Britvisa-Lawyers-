@@ -6,12 +6,18 @@ export const CertificationsBar = () => {
     { 
       src: "https://i.ibb.co/W4wZZgD1/Untitled-design-3.png", 
       alt: "ICO Logo",
-      className: "h-10 sm:h-14" 
+      className: "h-12 sm:h-18" 
+    },
+    { 
+      src: "https://i.ibb.co/VPt2xXW/IAA-Logo.png", 
+      alt: "IAA Logo",
+      className: "h-16 sm:h-28",
+      href: "https://home.oisc.gov.uk/digital_badges/verification.html?111105115099+109101109098101114098097100103101+100101102097117108116046115118103+104116116112115058047047119119119046115104097109115098118108097119121101114115046099111109047"
     },
     { 
       src: "https://i.ibb.co/8Dc4nr8L/image.png", 
       alt: "Certification Logo",
-      className: "h-10 sm:h-14" 
+      className: "h-12 sm:h-18" 
     },
   ];
 
@@ -28,7 +34,7 @@ export const CertificationsBar = () => {
       
       <div className="relative flex overflow-x-hidden">
         <motion.div 
-          className="flex whitespace-nowrap gap-8 sm:gap-24 items-center"
+          className="flex whitespace-nowrap gap-12 sm:gap-32 items-center"
           animate={{
             x: ["-50%", "0%"],
           }}
@@ -43,12 +49,23 @@ export const CertificationsBar = () => {
         >
           {marqueeLogos.map((logo, idx) => (
             <div key={idx} className="flex-shrink-0 px-4">
-              <img 
-                src={logo.src} 
-                alt={logo.alt} 
-                className={`${logo.className} w-auto object-contain transition-all duration-500 hover:scale-110`}
-                referrerPolicy="no-referrer"
-              />
+              {logo.href ? (
+                <a href={logo.href} target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={logo.src} 
+                    alt={logo.alt} 
+                    className={`${logo.className} w-auto object-contain transition-all duration-500 hover:scale-110`}
+                    referrerPolicy="no-referrer"
+                  />
+                </a>
+              ) : (
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt} 
+                  className={`${logo.className} w-auto object-contain transition-all duration-500 hover:scale-110`}
+                  referrerPolicy="no-referrer"
+                />
+              )}
             </div>
           ))}
         </motion.div>
